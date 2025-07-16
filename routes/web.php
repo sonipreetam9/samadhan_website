@@ -1,0 +1,76 @@
+<?php
+
+use App\Http\Controllers\Super_admin\SVacancyController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Super_admin\SDashboardController;
+use App\Http\Controllers\Super_admin\SAuthController;
+use App\Http\Controllers\Super_admin\SProfileController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+
+Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/about-us', [IndexController::class, 'about'])->name('about');
+Route::get('/gallery', [IndexController::class, 'gallery'])->name('gallery');
+Route::get('/contact-us', [IndexController::class, 'contact'])->name('contact');
+Route::get('/overview', [IndexController::class, 'overview'])->name('overview');
+Route::get('/our-company', [IndexController::class, 'our_company'])->name('our_company');
+Route::get('/mission', [IndexController::class, 'mission'])->name('mission');
+Route::get('/vision', [IndexController::class, 'vision'])->name('vision');
+Route::get('/services', [IndexController::class, 'services'])->name('services');
+Route::get('/required-documents', [IndexController::class, 'required_documents'])->name('required_documents');
+Route::get('/instruction-to-applicants', [IndexController::class, 'instruction_applicants'])->name('instruction_to_applicants');
+Route::get('/locations', [IndexController::class, 'locations'])->name('locations');
+
+
+Route::get('/super_admin', [SAuthController::class, 'login_page'])->name('super.login');
+Route::post('/super_admin', [SAuthController::class, 'check_login'])->name('super.post.login');
+Route::get('/super_admin/register', [SAuthController::class, 'register_page'])->name('super.register');
+Route::post('/super_admin/register', [SAuthController::class, 'register_post'])->name('super.post.register');
+
+Route::group(
+    ['middleware' => 'guest'],
+    function () {
+        Route::get('/login', [AuthController::class, 'login_page'])->name('login');
+        Route::post('/login', [AuthController::class, 'check_login'])->name('post.login');
+        Route::get('/register', [AuthController::class, 'register_page'])->name('register');
+        Route::post('/register', [AuthController::class, 'register_post'])->name('post.register');
+
+
+    }
+);
+
+
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+});
+
+Route::group(
+    ['prefix' => 'super_admin', 'middleware' => ['admin']],
+    function () {
+        Route::get('/logout', [SAuthController::class, 'logout'])->name('super.logout');
+        Route::get('/dashboard', [SDashboardController::class, 'dashboard'])->name('super.dashboard');
+
+        Route::get('/profile', [SProfileController::class, 'profile'])->name('super.profile');
+
+        Route::get('/add-vacancy', [SVacancyController::class, 'vacancy'])->name('super.add.vacancy');
+        Route::post('/add-vacancy-post', [SVacancyController::class, 'add_vacancy'])->name('super.add.vacancy.post');
+        Route::get('/all-vacancy-list', [SVacancyController::class, 'vacancy_list'])->name('super.vacancy.list');
+    }
+);
