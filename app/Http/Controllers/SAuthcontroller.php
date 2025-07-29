@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Super_admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminModel;
@@ -55,7 +55,7 @@ class SAuthcontroller extends Controller
 
         if ($user) {
             $user->remember_web_token = null; // Remove Remember Token
-            $user->save();
+            // $user->save();
         }
 
         Auth::guard('admin')->logout();

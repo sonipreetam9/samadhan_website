@@ -1,17 +1,18 @@
 <?php
 
 use App\Http\Controllers\ApplyJobController;
-use App\Http\Controllers\Super_admin\SCandidateController;
-use App\Http\Controllers\Super_admin\SVacancyController;
+use App\Http\Controllers\SCandidateController;
+use App\Http\Controllers\SVacancyController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Super_admin\SDashboardController;
-use App\Http\Controllers\Super_admin\SAuthController;
-use App\Http\Controllers\Super_admin\SProfileController;
-use App\Http\Controllers\Super_admin\SAdvertisementController;
+use App\Http\Controllers\SDashboardController;
+use App\Http\Controllers\SAuthController;
+use App\Http\Controllers\SProfileController;
+use App\Http\Controllers\SAdvertisementController;
 use App\Http\Controllers\VacancyController;
 
 /*
@@ -91,3 +92,17 @@ Route::group(
         Route::post('/add-advertisement-post', [SAdvertisementController::class, 'add_advertisement_post'])->name('super.add.advertisement.post');
     }
 );
+
+
+
+Route::get('/optimize', function () {
+    Artisan::call('optimize:clear');
+    Artisan::call('optimize');
+
+    // Optional: Run individual commands
+    Artisan::call('route:cache');
+    Artisan::call('config:cache');
+    Artisan::call('view:cache');
+
+    return 'Project optimized successfully!';
+});
