@@ -57,7 +57,7 @@
                             </li>
                             <li>
                                 <i class="icofont-ui-call"></i>
-                                <a href="tel:0123456987">+91 {{ $web_phone }}</a>
+                                <a href="tel:0123456987">+91 {{ $web_phone2 }}</a>
                             </li>
                         </ul>
                     </div>
@@ -119,7 +119,7 @@
         <!-- Menu For Mobile Device -->
         <div class="mobile-nav">
             <a href="{{ route('home') }}" class="logo">
-                <img src="{{ asset('assets/img/newlogo.jpg') }}" class="logo-one" alt="Logo" width="310" id="logo-img">
+                <img src="{{ asset('assets/img/newlogo.jpg') }}" width="100">
             </a>
         </div>
 
@@ -210,7 +210,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('contact') }}" class="nav-link">Contact Us</a>
                             </li>
-                            
+
                             <!-- Recruitment -->
                             <li class="nav-item">
                                 <a href="#" class="nav-link dropdown-toggle">More <i
