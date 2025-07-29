@@ -119,7 +119,7 @@
         <!-- Menu For Mobile Device -->
         <div class="mobile-nav">
             <a href="{{ route('home') }}" class="logo">
-                <img src="{{ asset('assets/img/newlogo.jpg') }}" width="100">
+                <img src="{{ asset('assets/img/newlogo.jpg') }}">
             </a>
         </div>
 
