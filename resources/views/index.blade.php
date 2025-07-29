@@ -27,79 +27,26 @@
     </button>
 </div>
 
+<section class="dream-area p-2">
 
 
-<!-- Dream -->
-<section class="dream-area pt-5 pb-70">
-    <div class="container">
-        <div class="marquee p-4 border border-danger" style="font-size:22px;    text-align: center;line-height:1.5em;">
+      <marquee><a href="{{ asset('assets/img/avt07.jpg') }}" target="_blank" style="color: red">{{ $web_name }}
+                     Advertisement number 07/2025
+                    for Multiple Positions Released. Online application will start from 01-AUG-2025 and closed
+                    15-SEPT-2025 Click here to download notification.</a></marquee>
 
-            <h3 style="text-align: center;"><a href="https://shagungraminhealth.com/portal/Apply/exam_results.php"
-                    style="color: red;text-align: center !important;" bis_skin_checked="1"> </a><b><u>IMPORTANT
-                        NOTICE
-                        :</u></b><u> EXAM RESULT OUT</u></h3><br>
-            <span style="background-color:yellow;padding: 5px;margin: 10px;">Exam Answer Keys uploaded.</span> <br>
 
-            <br><br>
-
-            <h3 style="text-align:center;">If any one Getting an issue to download admit card mail us Here:<br> <a
-                    href="mailto:correction-support@shagungraminhealthofindia.com?subject=admitcard (Your Application Id type here)">correction-support@shagungraminhealthofindia.com</a><br>Mention
-                These details in email : <span style="color:blue;">Application ID , Applicant Name , Applicant Email
-                    &amp; Applicant Phone.</span>
-            </h3><br>
-
-            <h3 style="text-align: center;"><a href="" style="color: red;text-align: center !important;"
-                    bis_skin_checked="1"> <b><u>IMPORTANT NOTICE :</u></b><u> EXAM DATE OUT</u></a></h3><a href=""
-                style="color: red;text-align: center !important;" bis_skin_checked="1"><br>
-                <span style="background-color:yellow;padding: 5px;margin: 10px;">Exam Will be Held on 16-17 NOV 2024
-                    Saturday and Sunday.</span> <br>
-
-                Admit Card download start from 12 NOV 2024 Evening 6:00 PM.<br><br>
-
-            </a>
-            <h3 style="text-align:center;"><a href="" style="color: red;text-align: center !important;"
-                    bis_skin_checked="1">If any one Getting an issue to download admit card mail us Here:<br> </a><a
-                    href="mailto:correction-support@shagungraminhealthofindia.com?subject=admitcard (Your Application Id type here)">correction-support@shagungraminhealthofindia.com</a><br>Mention
-                These details in email : <span style="color:blue;">Application ID , Applicant Name , Applicant Email
-                    &amp; Applicant Phone.</span>
-            </h3><br>
-
-        </div>
-    </div>
 </section>
-<!-- Dream -->
-</br>
-<section class="dream-area pt-5 pb-70">
-    <div class="container">
-        <div class="marquee p-5" style="font-size:16px;    text-align: center;line-height:1.5em;">
+<section class="dream-area p-2 mt-2">
 
-
-            <h5 style="text-align: center;"><a href="https://shagungraminhealth.com/latest_news.php" target="_blank"
-                    style="color: red;text-align: center !important;" bis_skin_checked="1">Last Date is
-                    extended from 14-10-24 to 25-10-24 </a></h5><br>
-
-            <h5 style="text-align:center;">If any one have issue Related payment like they paid and payment status
-                showing failed so please mail us with payment screenshot Here: <a
-                    href="mailto:correction-support@shagungraminhealthofindia.com?subject=Correction (Your Application Id type here)">correction-support@shagungraminhealthofindia.com</a><br>Mention
-                These details in email : <span style="color:blue;">Application ID , Applicant Name , Applicant Email
-                    , Applicant Phone and Correction details which you want to fix in your form.</span>
-            </h5><br>
-
-            <h5 style="text-align:center;">For any type of correction mail us Here: <a
-                    href="mailto:correction-support@shagungraminhealthofindia.com?subject=Correction (Your Application Id type here)">correction-support@shagungraminhealthofindia.com</a><br>Mention
-                These details in email : <span style="color:blue;">Application ID , Applicant Name , Applicant Email
-                    , Applicant Phone and Correction details which you want to fix in your form.</span>
-            </h5><br>
-            <marquee><a href="https://shagungraminhealth.com/latest_news.php" target="_blank" style="color: red">Shagun
-                    Gramin Health Recruitment Notification Advertisement number 09/2024
-                    for Multiple Positions Released. Online application will start from 15-SEP-24 and closed
-                    25-OCT-2024 Click here to download notification.</a></marquee>
-        </div>
-    </div>
+                    <marquee><a href="{{ asset('assets/membership_form.pdf') }}" target="_blank" style="color: red">मुख्यालय द्वारा कल्याणकारी योजनाओं से सम्बन्धित आवेदन फ़ार्म पोर्टल पर या नजदीक के सी0एस0सी0 केन्द्रों पर जाकर अपना यूनिक पंजीकरण नम्बर प्राप्त करें। (download application form)</a></marquee>
 </section>
-<!-- End Dream -->
+
+
+
+
 <!-- Dream -->
-<!-- <section class="dream-area pt-100 pb-70">
+{{-- <section class="dream-area pt-100 pb-70">
         <div class="container">
             <div class="section-title">
                 <span class="sub-title">Fulfill our dream</span>
@@ -180,7 +127,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section> --}}
 <!-- End Dream -->
 
 
@@ -192,31 +139,40 @@
     <div class="container">
         <div class="row align-items-center">
 
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="about-img">
-                    <img src="assets/img/about/about-main1.jpg" alt="About">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="About">
                 </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="about-content">
                     <div class="section-title">
-                        <span class="sub-title">About us</span>
-                        <h2>समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड</h2>
+                        <span class="sub-title">हमारे बारे में</span>
+                        <h3>समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड</h3>
                     </div>
-                    <span class="about-span">We exist for non-profits, social enterprises, community groups,
-                        activists,lorem politicians and individual citizens that are making.</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore minima atque obcaecati
-                        deleniti tempora, cumque molestiae consectetur provident temporibus natus iste accusamus
-                        totam voluptas quas suscipit blanditiis fuga quibusdam porro.</p>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a
-                        page when looking at its layout.</p>
+                    <span class="about-span">
+                        हम उन संस्थाओं, सामाजिक संगठनों, समुदाय समूहों, कार्यकर्ताओं और नागरिकों के लिए कार्य करते हैं
+                        जो समाज में सकारात्मक परिवर्तन लाने के लिए समर्पित हैं।
+                    </span>
+                    <p>
+                        समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड का उद्देश्य ग्रामीण और शहरी क्षेत्रों
+                        के लोगों को सामाजिक, आर्थिक और रोजगार से जुड़ी योजनाओं से जोड़ना है। हम सरकारी और गैर-सरकारी
+                        योजनाओं को जनता तक पहुंचाने के लिए जागरूकता अभियान, सर्वेक्षण, प्रशिक्षण और सेवा वितरण कार्यों
+                        में सक्रिय रूप से कार्य करते हैं।
+                    </p>
+                    <p>
+                        हमारा विश्वास है कि समाज का हर वर्ग, चाहे वह शिक्षित हो या अशिक्षित, उचित मार्गदर्शन और अवसर
+                        मिलने पर आत्मनिर्भर बन सकता है। इसी दिशा में हमारा प्रयास है कि हम समाज के अंतिम व्यक्ति तक अपनी
+                        सेवाएं पहुंचाएं और उन्हें सशक्त बनाएं।
+                    </p>
                     <div class="about-btn-area">
-                        <a class="common-btn about-btn" href="#">Get Start A Fundraising</a>
-                        <a class="common-btn" href="#">Read More</a>
+                        <a class="common-btn about-btn" href="#">फंडरेज़िंग शुरू करें</a>
+                        <a class="common-btn" href="#">और पढ़ें</a>
                     </div>
                 </div>
             </div>
+
 
         </div>
     </div>
@@ -233,7 +189,7 @@
             <aside class="user_information">
                 <div class="main-users">
                     <div id="Div1" style="margin-top: 15px; text-align: center;">
-                        <h3>To avail SGHFWC any scheme or service, Please visit</h3>
+                        <h3>To avail SGWESLTD. any scheme or service, Please visit</h3>
                         your nearest CSC Center
                         <br><br>
                         <a href="assets/form.pdf" target="_blank">
@@ -267,26 +223,26 @@
                         <h6 class="text-center text-danger font-weight-bold">E-Services Online</h6>
                     </div>
                     <div style="display: flex;flex-direction: column;">
-                        <a href="https://shagungraminhealth.com/portal/member/register.php"
+                        <a href="#"
                             style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn btn-warning btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-person"></i> Apply Membership
                         </a>
-                        <a href="https://shagungraminhealth.com/portal/member/"
+                        <a href="{{ route('login') }}"
                             style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn login-btn btn-block btn-flat p-2 mt-3 text-left">
-                            <i class="bi bi-person"></i> Members Login
+                            <i class="bi bi-person"></i> Membership Login
                         </a>
-                        <a href="https://shagungraminhealth.com/portal/Apply/register.php"
+                        <a href="{{ route('login') }}"
                             style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn btn-warning btn-block btn-flat p-2 mt-3 text-left">
-                            <i class="bi bi-person"></i> Apply Online
+                            <i class="bi bi-person"></i> Apply Job
                         </a>
-                        <a href="contact.php" style="background-color:#ffd8b1; border-color:#ffd8b1;"
+                        <a href="{{ route('contact') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn btn-warning btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-phone"></i> Contact Us
                         </a>
-                        <a href="services.php" style="background-color:#ffd8b1; border-color:#ffd8b1;"
+                        <a href="{{ route('services') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn btn-warning btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-list"></i> Services
                         </a>

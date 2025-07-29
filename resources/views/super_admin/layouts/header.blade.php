@@ -186,8 +186,8 @@
                         <li class="menu-title"><i class="ri-more-fill"></i> <span>Candidate</span></li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link "
-                                href="">
+                            <a class="nav-link menu-link {{ request()->routeIs('super.candidate.list') ? 'active' : '' }}"
+                                href="{{ route('super.candidate.list') }}">
                                 <i class="mdi mdi-account-multiple"></i> <span>All Candidate</span>
                             </a>
                         </li>
@@ -196,13 +196,19 @@
                         <li class="menu-title"><i class="ri-more-fill"></i> <span>Vacancy</span></li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link "
+                            <a class="nav-link menu-link {{ request()->routeIs('super.add.advertisement.page') ? 'active' : '' }}"
+                                href="{{ route('super.add.advertisement.page') }}">
+                                <i class="mdi mdi-plus"></i> <span>Advertisement</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link {{ request()->routeIs('super.add.vacancy') ? 'active' : '' }}"
                                 href="{{ route('super.add.vacancy') }}">
                                 <i class="mdi mdi-plus"></i> <span>Add Vacancy</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link "
+                            <a class="nav-link menu-link {{ request()->routeIs('super.vacancy.list') ? 'active' : '' }}"
                                 href="{{ route('super.vacancy.list') }}">
                                 <i class="mdi mdi-view-list"></i> <span>Vacancy List</span>
                             </a>

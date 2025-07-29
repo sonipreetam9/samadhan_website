@@ -10,10 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo/tgfav.png') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset($small_logo) }}" />
     <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css')}}" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    {{--
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
     <!-- jsvectormap css -->
     <link href="{{ asset('software/assets/libs/jsvectormap/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -51,19 +53,19 @@
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="{{ route('dashboard') }}" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('images/logo/tgfav.png') }}" alt="" height="22">
+                                    <img src="{{ asset($small_logo) }}" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="" height="17">
+                                    <img src="{{ asset($small_logo) }}" alt="" height="17">
                                 </span>
                             </a>
 
                             <a href="{{ route('dashboard') }}" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('images/logo/tgfav.png') }}" alt="" height="22">
+                                    <img src="{{ asset($small_logo) }}" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-light.png" alt="" height="17">
+                                    <img src="{{ asset($small_logo) }}" alt="" height="17">
                                 </span>
                             </a>
                         </div>
@@ -146,21 +148,21 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <!-- Dark Logo-->
-                <a href="{{ route('dashboard') }}" class="logo logo-dark">
+                <a href="{{ route('super.dashboard') }}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('images/logo/tgfav.png') }}" alt="" height="22">
+                        <img src="{{ asset($small_logo) }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo-dark.png" alt="" height="17">
+                        <img src="{{ asset($small_logo) }}" alt="" height="17">
                     </span>
                 </a>
                 <!-- Light Logo-->
                 <a href="{{ route('dashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('images/logo/tgfav.png') }}" alt="" height="22">
+                        <img src="{{ asset($small_logo) }}" alt="" height="22">
                     </span>
-                    <span class="logo-lg" style="background-color: white;padding:8px;border-radius:10px;">
-                        <img src="{{ asset('images/logo/tglogobg.png') }}" alt="Logo" width="120">
+                    <span class="logo-lg">
+                        <img src="{{ asset($small_logo) }}" alt="Logo" width="70">
                     </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -178,31 +180,36 @@
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link "
-                                href="">
+                            <a class="nav-link menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
+                                href="{{ route('dashboard') }}">
                                 <i class="mdi mdi-view-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span>Customers</span></li>
+
+
+
+
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span>Vacancy</span></li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link "
-                                href="">
-                                <i class="mdi mdi-account-multiple-plus"></i> <span>Add Customer</span>
+                            <a class="nav-link menu-link {{ request()->routeIs('user.select.vacancy.form.list') ? 'active' : '' }}"
+                                href="{{ route('user.select.vacancy.form.list') }}">
+                                <i class="mdi mdi-plus"></i> <span>Apply Job</span>
                             </a>
                         </li>
-
-
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span>Sale</span></li>
-
                         <li class="nav-item">
-                            <a class="nav-link menu-link "
-                                href="">
-                                <i class="mdi mdi-plus"></i> <span>Make Sale</span>
+                            <a class="nav-link menu-link {{ request()->routeIs('user.vacancy.list') ? 'active' : '' }}"
+                                href="{{ route('user.vacancy.list') }}">
+                                <i class="mdi mdi-view-list"></i> <span>Vacancy List</span>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link menu-link " href="">
+                                <i class="mdi mdi mdi-form-select"></i> <span>Applyed List</span>
+                            </a>
+                        </li>
 
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">User</span>

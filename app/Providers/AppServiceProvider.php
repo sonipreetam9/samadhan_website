@@ -25,8 +25,9 @@ class AppServiceProvider extends ServiceProvider
         'web_name'        => 'समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड',
         'web_full_name'   => 'समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड पंजीकृत कॉरपोरेट कार्य मंत्रालय, भारत सरकार',
         'web_phone'       => '7973924876',
-        'web_email'       => 'chiefdirectirsamadhan500@gmail.com',
-        'web_address'         => 'Shah Satnam Singh Ji Chowk Sirsa 125055',
+        'web_phone2'       => '8708944714',
+        'web_email'       => 'chiefdirectorsamadhan500@gmail.com',
+        'web_address'         => 'Sco 38, Sector 11 Panchkula, Haryana (India)',
         'small_logo'         => 'assets/img/logo.png',
     ];
 

@@ -18,7 +18,16 @@
                     </div>
 
 
-                  <ul><li>Aadhar Card</li><li>Domicile Certificate</li><li>Caste Certificate (Reservations)</li><li>Signature</li><li>Passport size Photograph</li><li>Experience Cerificate</li><li>Qualification Certificate</li></ul>
+                    <ul>
+                        <li>Qualification Certificate</li>
+                        <li>Aadhar Card</li>
+                        <li>Pan Card</li>
+                        <li>Domicile Certificate</li>
+                        <li>Caste Certificate (Reservations)</li>
+                        <li>Passport size Photograph</li>
+                        <li>Experience Cerificate</li>
+                        <li>Signature</li>
+                    </ul>
 
 
                 </div>

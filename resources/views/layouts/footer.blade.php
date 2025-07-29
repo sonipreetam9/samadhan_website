@@ -2,7 +2,7 @@
 <footer class="footer-area pt-100">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-lg-4">
+            <div class="col-sm-6 col-lg-3">
                 <div class="footer-item">
                     <div class="footer-logo">
                         <a class="logo" href="index.html">
@@ -40,35 +40,58 @@
             </div>
 
 
-            <div class="col-sm-6 col-lg-4">
+            <div class="col-sm-6 col-lg-3">
                 <div class="footer-item">
                     <div class="footer-links">
                         <h3>Quick links</h3>
                         <ul>
                             <li>
-                                <a href="about.html">
+                                <a href="{{ route('overview') }}">
                                     <i class="icofont-simple-right"></i>
-                                    About
+                                    Overview
                                 </a>
                             </li>
                             <li>
-                                <a href="blog.html">
+                                <a href="{{ route('services') }}">
                                     <i class="icofont-simple-right"></i>
-                                    Blog
+                                    Service
                                 </a>
                             </li>
                             <li>
-                                <a href="events.html">
+                                <a href="{{ route('gallery') }}">
                                     <i class="icofont-simple-right"></i>
-                                    Events
+                                    Gallery
                                 </a>
                             </li>
                             <li>
-                                <a href="donation.html">
+                                <a href="{{ route('contact') }}">
                                     <i class="icofont-simple-right"></i>
-                                    Donation
+                                    Contact
                                 </a>
                             </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="footer-item">
+                    <div class="footer-links">
+                        <h3>Download</h3>
+                        <ul>
+                            <li>
+                                <a href="{{ asset('assets/membership_form.pdf') }}" target="_blank"> <i
+                                        class="icofont-simple-right"></i> Membership Form</a>
+                            </li>
+                            <li>
+                                <a href="{{ asset('assets/application.pdf') }}" target="_blank"> <i
+                                        class="icofont-simple-right"></i> Job Application From</a>
+                            </li>
+                            <li>
+                                <a href="{{ asset('assets/SAMADHAN_CERTIFICATE_OF_INCORPORATION-20191218.pdf') }}"
+                                    target="_blank"> <i class="icofont-simple-right"></i> Certificates</a>
+
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -77,7 +100,7 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-item">
                     <div class="footer-contact">
-                        <h3>Contact info</h3>
+                        <h3>Registered Adresss</h3>
                         <div class="contact-inner">
                             <ul>
                                 <li>
@@ -85,23 +108,23 @@
                                     <a href="#">{{ $web_address }}</a>
                                 </li>
                                 <li>
-                                    <i class="icofont-ui-call"></i>
-                                    <a href="tel:123456789">+91 {{ $web_phone }}</a>
+                                    <i class="icofont-whatsapp"></i>
+                                    <a href="tel:123456789">+91 {{ $web_phone2 }}  (Only Whatsapp)</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="contact-inner">
+                        {{-- <div class="contact-inner">
                             <ul>
                                 <li>
                                     <i class="icofont-location-pin"></i>
                                     <a href="#">{{ $web_address }}</a>
                                 </li>
                                 <li>
-                                    <i class="icofont-ui-call"></i>
-                                    <a href="tel:548658956">+91 {{ $web_phone }}</a>
+                                    <i class="icofont-whatsapp"></i>
+                                    <a href="tel:548658956">+91 {{ $web_phone2 }}</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -110,7 +133,10 @@
             <p>Copyright @
                 <script>
                     document.write(new Date().getFullYear())
-                </script> SGWISL. Designed By <a href="https://techgeometry.com/" target="_blank">TechGeometry</a>
+                </script> SGWESLTD.
+
+
+                {{-- Designed By <a href="https://techgeometry.com/" target="_blank">TechGeometry</a> --}}
             </p>
         </div>
     </div>

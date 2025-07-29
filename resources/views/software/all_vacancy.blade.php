@@ -1,5 +1,5 @@
-@extends('super_admin.layouts.header')
-@section('super')
+@extends('software.layouts.header')
+@section('software')
 
 <div class="page-content">
     <div class="container-fluid">
@@ -28,7 +28,7 @@
                         <div class="table-responsive">
                             <table id="myTable"
                                 class="table table-bordered table-hover table-striped align-middle w-100">
-                               <thead class="table-dark">
+                                <thead class="table-dark">
                                     <tr>
                                         <th>#</th>
                                         <th>Advt_No.</th>
@@ -64,10 +64,8 @@
                                         </td>
                                         <td>
                                             <a href="{{ asset('uploads/'.$vacancy->file) }}"
-                                                class="btn btn-sm btn-success">View</a>
-                                            <a href="{{ url('vacancy/delete/'.$vacancy->id) }}"
-                                                class="btn btn-sm btn-danger"
-                                                onclick="return confirm('Are you sure?')">Delete</a>
+                                                class="btn btn-sm btn-success" target="_blank">View</a>
+                                           
                                         </td>
                                     </tr>
 

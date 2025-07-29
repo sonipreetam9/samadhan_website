@@ -14,6 +14,6 @@ class Admin
             return $next($request);
         }
 
-        return redirect()->route('adm.login.page'); 
+        return redirect()->route('super.login');
     }
 }

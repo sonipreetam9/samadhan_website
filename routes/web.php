@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ApplyJobController;
+use App\Http\Controllers\Super_admin\SCandidateController;
 use App\Http\Controllers\Super_admin\SVacancyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
@@ -9,6 +11,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Super_admin\SDashboardController;
 use App\Http\Controllers\Super_admin\SAuthController;
 use App\Http\Controllers\Super_admin\SProfileController;
+use App\Http\Controllers\Super_admin\SAdvertisementController;
+use App\Http\Controllers\VacancyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +52,6 @@ Route::group(
         Route::post('/login', [AuthController::class, 'check_login'])->name('post.login');
         Route::get('/register', [AuthController::class, 'register_page'])->name('register');
         Route::post('/register', [AuthController::class, 'register_post'])->name('post.register');
-
-
     }
 );
 
@@ -59,11 +61,20 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/all-vacancy-list', [VacancyController::class, 'vacancy_list'])->name('user.vacancy.list');
+    Route::get('/select-vacancy-list', [VacancyController::class, 'select_vacancy_list'])->name('user.select.vacancy.form.list');
+
+
+    Route::get('/apply-job-form/{vacancyID}', [ApplyJobController::class, 'vacancy_applying_form'])->name('user.apply.job');
+    Route::post('/apply-job-form-post', [ApplyJobController::class, 'vancany_apply_post'])->name('user.apply.job.post');
+    Route::get('upload-documents-form/{applyed_id}/{vacancy_id}', [ApplyJobController::class, 'upload_documents_form'])->name('user.upload.documents');
+    Route::get('/apply-job-list', [ApplyJobController::class, 'applyed_job_list'])->name('user.apply.job.list');
 });
 
 Route::group(
     ['prefix' => 'super_admin', 'middleware' => ['admin']],
     function () {
+
         Route::get('/logout', [SAuthController::class, 'logout'])->name('super.logout');
         Route::get('/dashboard', [SDashboardController::class, 'dashboard'])->name('super.dashboard');
 
@@ -72,5 +83,11 @@ Route::group(
         Route::get('/add-vacancy', [SVacancyController::class, 'vacancy'])->name('super.add.vacancy');
         Route::post('/add-vacancy-post', [SVacancyController::class, 'add_vacancy'])->name('super.add.vacancy.post');
         Route::get('/all-vacancy-list', [SVacancyController::class, 'vacancy_list'])->name('super.vacancy.list');
+        Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
+
+
+
+        Route::get('/add-advertisement', [SAdvertisementController::class, 'add_advertisement'])->name('super.add.advertisement.page');
+        Route::post('/add-advertisement-post', [SAdvertisementController::class, 'add_advertisement_post'])->name('super.add.advertisement.post');
     }
 );

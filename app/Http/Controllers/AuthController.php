@@ -14,7 +14,7 @@ class AuthController extends Controller
     public function login_page()
     {
         if (Auth::check()) {
-            return redirect()->route('home.page');
+            return redirect()->route('dashboard');
         }
         return view('software.auth.login');
     }
@@ -22,7 +22,7 @@ class AuthController extends Controller
     {
 
         if (Auth::check()) {
-            return redirect()->route('home.page');
+           return redirect()->route('dashboard');
         }
         return view('software.auth.register');
     }
@@ -50,7 +50,7 @@ class AuthController extends Controller
 
         if ($user) {
             $user->remember_token = null; // Remove Remember Token
-            $user->save();
+           
         }
 
         Auth::logout();

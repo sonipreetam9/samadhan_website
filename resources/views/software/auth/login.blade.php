@@ -40,7 +40,7 @@
                             <div class="row justify-content-center g-0">
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 d-flex justify-content-center algin-items-center">
-                                        <img src="{{ asset($small_logo) }}" alt="" width="280">
+                                        <img src="{{ asset($small_logo) }}" alt="" width="235">
                                     </div>
                                 </div>
 

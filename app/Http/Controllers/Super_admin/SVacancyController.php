@@ -5,16 +5,20 @@ namespace App\Http\Controllers\Super_admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\VacancyModel;
+use App\Models\AdvertisementModel;
 use Illuminate\Support\Str;
 class SVacancyController extends Controller
 {
     public function vacancy()
     {
-        return view('super_admin.add_vacancy');
+         $ads=AdvertisementModel::orderBy('id','DESC')->get();
+        return view('super_admin.add_vacancy',compact('ads'));
     }
     public function add_vacancy(Request $request)
     {
         $request->validate([
+            'advt_number' => 'required|string',
+            'total_post' => 'required|numeric',
             'post' => 'required|string',
             'category' => 'required|string',
             'post_date' => 'required|date',
@@ -46,6 +50,8 @@ class SVacancyController extends Controller
 
         // Insert into database
         $vacancy = new VacancyModel();
+        $vacancy->advertisement_id =  $request->advt_number;
+        $vacancy->total_post =  $request->total_post;
         $vacancy->vacancy_number = $vacancyNumber;
         $vacancy->post = $request->post;
         $vacancy->category = $request->category;
@@ -64,7 +70,7 @@ class SVacancyController extends Controller
     }
       public function vacancy_list()
     {
-        $vacancies = VacancyModel::orderBy('id','DESC')->get();
+        $vacancies = VacancyModel::with('advertisement')->orderBy('id','DESC')->get();
 
         return view('super_admin.all_vacancy',compact('vacancies'));
     }

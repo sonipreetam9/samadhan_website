@@ -9,31 +9,36 @@
     <div class="container">
         <div class="row align-items-center">
 
-            <div class="col-lg-6">
-                <div class="about-img">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="About" width="200">
-                </div>
-            </div>
+    <div class="col-lg-4">
+        <div class="about-img">
+            <img src="{{ asset('assets/img/logo.png') }}" alt="About" width="100">
+        </div>
+    </div>
 
-            <div class="col-lg-6">
-                <div class="about-content">
-                    <div class="section-title">
-                         <span class="sub-title">{{ $page_title }}</span>
-                        <h2>{{ $web_name }}</h2>
-                    </div>
-                    <span class="about-span">Our mission is to serve individuals and families in the poorest communities
-                        in the Drawing strength from our global diversity, resources and experience, we promote
-                        innovative solutions and are advocates for global responsibility.
-                    </span>
-                    <p>We promote lasting change by:<br>
-                        Strengthening capacity for self-help.<br>
-                        Providing economic opportunity.<br>
-                        Delivering relief in emergencies.<br>
-                        Influencing policy decisions at all levels.<br>
-                        Addressing discrimination in all its.</p>
-                </div>
-
+    <div class="col-lg-8">
+        <div class="about-content">
+            <div class="section-title">
+                <span class="sub-title">{{ $page_title }}</span>
+                <h3>{{ $web_name }}</h3>
             </div>
+            <span class="about-span">
+                हमारा मिशन समाज के सबसे गरीब समुदायों के व्यक्तियों और परिवारों की सेवा करना है। हम अपनी वैश्विक विविधता, संसाधनों और अनुभव से शक्ति लेकर नवाचार को बढ़ावा देते हैं और वैश्विक जिम्मेदारी के पक्षधर हैं।
+            </span>
+            <style>
+                .justify-text {
+                    text-align: justify !important;
+                }
+            </style>
+            <p class="justify-text">
+                {{ $web_name }} का उद्देश्य कन्यादान योजना, वृद्धावस्था पेंशन योजना, दुर्घटना दावा, मृत्यु दावा, सांस्कृतिक गतिविधियाँ, खेल, सिलाई मशीन योजना, रोजगार और सशक्तिकरण से संबंधित सेवाएं प्रदान करना है। साथ ही, समाज के प्रत्येक वर्ग के लिए सर्वेक्षण कराना और सरकारी सर्वेक्षण टेंडरों के लिए आवेदन करना है, जो सरकारी, निजी, स्वरोजगार या किसी भी प्रकार के रोजगार से संबंधित हों।
+            </p>
+            <p class="justify-text">
+                इसके अतिरिक्त, किसानों, छात्रों, गृहिणियों, बेटियों और अन्य वर्गों में जागरूकता फैलाने के लिए सरकारी योजनाओं के लिए आवेदन करना और शिक्षित एवं अशिक्षित जनसंख्या की सेवा हेतु सरकारी टेंडरों के लिए आवेदन करना। इसके साथ ही, परिवार नियोजन, बाल श्रम, बाल विवाह और महिला सशक्तिकरण से संबंधित जन-जागरूकता कार्यक्रमों के लिए सरकारी टेंडरों में भाग लेना तथा महिला सशक्तिकरण से संबंधित किसी भी कंपनी/पार्टनरशिप/एनजीओ को सेवाएं प्रदान करना भी हमारे उद्देश्यों में शामिल है।
+            </p>
+        </div>
+    </div>
+</div>
+
 
         </div>
     </div>

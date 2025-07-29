@@ -10,10 +10,10 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-6 col-lg-4">
+             <div class="col-sm-6 col-lg-4">
                 <div class="gallery-item">
-                    <a href="assets/img/gallery/gallery1.jpg" data-lightbox="roadtrip">
-                        <img src="assets/img/gallery/gallery1.jpg" alt="Gallery">
+                    <a href="assets/img/a1.jpg" data-lightbox="roadtrip">
+                        <img src="assets/img/a1.jpg" alt="Gallery">
                         <i class="icofont-eye"></i>
                     </a>
                 </div>
@@ -21,14 +21,38 @@
 
             <div class="col-sm-6 col-lg-4">
                 <div class="gallery-item">
-                    <a href="assets/img/gallery/gallery2.jpg" data-lightbox="roadtrip">
-                        <img src="assets/img/gallery/gallery2.jpg" alt="Gallery">
+                    <a href="assets/img/a2.jpg" data-lightbox="roadtrip">
+                        <img src="assets/img/a2.jpg" alt="Gallery">
+                        <i class="icofont-eye"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="gallery-item">
+                    <a href="assets/img/gallery5.jpg" data-lightbox="roadtrip">
+                        <img src="assets/img/gallery5.jpg" alt="Gallery">
+                        <i class="icofont-eye"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="gallery-item">
+                    <a href="assets/img/b3.jpg" data-lightbox="roadtrip">
+                        <img src="assets/img/b3.jpg" alt="Gallery">
+                        <i class="icofont-eye"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="gallery-item">
+                    <a href="assets/img/b4.jpg" data-lightbox="roadtrip">
+                        <img src="assets/img/b4.jpg" alt="Gallery">
                         <i class="icofont-eye"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-lg-4">
+            {{-- <div class="col-sm-6 col-lg-4">
                 <div class="gallery-item">
                     <a href="assets/img/gallery/gallery3.jpg" data-lightbox="roadtrip">
                         <img src="assets/img/gallery/gallery3.jpg" alt="Gallery">
@@ -62,10 +86,10 @@
                         <i class="icofont-eye"></i>
                     </a>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
-        <div class="pagination-area">
+        {{-- <div class="pagination-area">
             <ul>
                 <li>
                     <a href="#">Prev</a>
@@ -83,7 +107,7 @@
                     <a href="#">Next</a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 </div>
 <!-- End Gallery -->

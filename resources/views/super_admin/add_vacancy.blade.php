@@ -38,6 +38,36 @@
                             <div class="live-preview">
                                 <div class="row gy-4">
 
+                                    {{-- Advt Number --}}
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <select class="form-control" id="advt_number" name="advt_number" required>
+                                                <option value="">-- Select Advt Number --</option>
+                                                @foreach ($ads as $ad)
+                                                <option value="{{ $ad->id }}" {{ old('advt_number')==$ad->
+                                                    advt_number || (empty(old('advt_number')) && $loop->first) ?
+                                                    'selected' : '' }}>
+                                                    {{ $ad->advt_number }}
+                                                </option>
+                                                @endforeach
+
+                                            </select>
+                                            <small class="form-text text-muted">Select the job advertisement
+                                                number.</small>
+                                            @error('advt_number')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+
+                                            <label for="advt_number">Advertisement Number</label>
+                                            <small class="form-text text-muted">Select the job advertisement
+                                                number.</small>
+                                            @error('advt_number')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
                                     {{-- Post Name --}}
                                     <div class="col-md-6">
                                         <div class="form-floating">
@@ -113,6 +143,20 @@
                                                 Enter numbers only.</small>
                                             @error('application_fee_oth') <small class="text-danger">{{ $message
                                                 }}</small> @enderror
+                                        </div>
+                                    </div>
+
+                                    {{-- Total Post --}}
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="number" class="form-control" id="total_post" name="total_post"
+                                                placeholder="Total Post" required>
+                                            <label for="total_post">Total Post Count</label>
+                                            <small class="form-text text-muted">Total post count in this
+                                                Vacancy.</small>
+                                            @error('total_post')
+                                            <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
 

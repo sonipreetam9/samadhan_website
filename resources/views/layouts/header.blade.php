@@ -109,10 +109,17 @@
 
     <!-- Navbar -->
     <div class="navbar-area sticky-top">
+        <style>
+            #logo-img{
+                    border:1px solid rgb(255, 0, 0);
+                    border-radius: 20px 0px;
+                    padding: 20px;
+                }
+        </style>
         <!-- Menu For Mobile Device -->
         <div class="mobile-nav">
             <a href="{{ route('home') }}" class="logo">
-                <img src="{{ asset('assets/img/newlogo.jpg') }}" class="logo-one" alt="Logo" width="310">
+                <img src="{{ asset('assets/img/newlogo.jpg') }}" class="logo-one" alt="Logo" width="310" id="logo-img">
             </a>
         </div>
 
@@ -139,7 +146,7 @@
 
                     <div class="col-md-12">
                         <a class="navbar-brand" href="{{ route('home') }}">
-                            <img src="assets/img/newlogo.jpg" class="logo-one" alt="Logo" >
+                            <img src="assets/img/newlogo.jpg" class="logo-one" alt="Logo" id="logo-img">
                         </a>
                     </div>
                 </div>
@@ -163,7 +170,7 @@
                                     <li class="nav-item"><a href="{{ route('our_company') }}" class="nav-link">Company Values</a>
                                     </li>
                                     <li class="nav-item"><a href="{{ route('mission') }}" class="nav-link">Mission</a></li>
-                                    <li class="nav-item"><a href="{{ route('vision') }}" class="nav-link">Vision</a></li>
+                                    {{-- <li class="nav-item"><a href="{{ route('vision') }}" class="nav-link">Vision</a></li> --}}
                                 </ul>
                             </li>
 
@@ -186,12 +193,12 @@
 
                             <!-- Certificates -->
                             <li class="nav-item">
-                                <a href="{{ asset('assets/certificates.pdf') }}" class="nav-link" target="_blank">Certificates</a>
+                                <a href="{{ asset('assets/SAMADHAN_CERTIFICATE_OF_INCORPORATION-20191218.pdf') }}" class="nav-link" target="_blank">Certificates</a>
                             </li>
 
                             <!-- Latest News -->
                             <li class="nav-item">
-                                <a href="latest_news.php" class="nav-link">Latest News</a>
+                                <a href="#" class="nav-link">Our Team</a>
                             </li>
 
                             <!-- Gallery -->
@@ -203,9 +210,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('contact') }}" class="nav-link">Contact Us</a>
                             </li>
-
-
-
+                            
                             <!-- Recruitment -->
                             <li class="nav-item">
                                 <a href="#" class="nav-link dropdown-toggle">More <i

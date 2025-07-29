@@ -1,12 +1,12 @@
-@extends('super_admin.layouts.header')
-@section('super')
+@extends('software.layouts.header')
+@section('software')
 
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">All Vacancy</h4>
+                    <h4 class="mb-sm-0">Select Vacancy</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -22,21 +22,20 @@
             <div class="col-lg-12">
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary ">
-                        <h5 class="card-title mb-0 text-white">All Vacancy List</h5>
+                        <h5 class="card-title mb-0 text-white">Available Vacancy List</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="myTable"
                                 class="table table-bordered table-hover table-striped align-middle w-100">
-                               <thead class="table-dark">
+                                <thead class="table-dark">
                                     <tr>
                                         <th>#</th>
                                         <th>Advt_No.</th>
+                                        <th>Category</th>
                                         <th>Vacancy_No.</th>
                                         <th>Post</th>
-                                        <th>Post Date</th>
                                         <th>Last Date</th>
-                                        <th>Category</th>
                                         <th>Fee (GEN)</th>
                                         <th>Fee (OTH)</th>
                                         <th>Status</th>
@@ -48,11 +47,10 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $vacancy->advertisement->advt_number ?? "NULL" }}</td>
+                                        <td>{{ $vacancy->category }}</td>
                                         <td>{{ $vacancy->vacancy_number }}</td>
                                         <td>{{ $vacancy->post }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($vacancy->post_date)->format('d-m-Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($vacancy->last_date)->format('d-m-Y') }}</td>
-                                        <td>{{ $vacancy->category }}</td>
                                         <td>₹{{ $vacancy->application_fee_gen }}</td>
                                         <td>₹{{ $vacancy->application_fee_oth }}</td>
                                         <td>
@@ -63,11 +61,8 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ asset('uploads/'.$vacancy->file) }}"
-                                                class="btn btn-sm btn-success">View</a>
-                                            <a href="{{ url('vacancy/delete/'.$vacancy->id) }}"
-                                                class="btn btn-sm btn-danger"
-                                                onclick="return confirm('Are you sure?')">Delete</a>
+                                            <a href="{{ route('user.apply.job',['vacancyID'=>$vacancy->vacancy_number]) }}"
+                                                class="btn btn-sm btn-primary" target="_blank">Apply</a>
                                         </td>
                                     </tr>
 
