@@ -226,7 +226,7 @@
                                         <a href="portal/Apply/index.php" class="nav-link">Apply Online</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="https://shagungraminhealth.com/portal/Apply/admit_cards.php"
+                                        <a href="3"
                                             class="nav-link">Download Admit Card</a>
                                     </li>
                                     <li class="nav-item" style="background: red;">
@@ -235,7 +235,7 @@
                                             Keys</a>
                                     </li>
                                     <li class="nav-item" style="background: red;">
-                                        <a href="https://shagungraminhealth.com/portal/Apply/exam_results.php"
+                                        <a href="#"
                                             class="nav-link text-white">Download Exam Result</a>
                                     </li>
                                     <!-- Locations -->

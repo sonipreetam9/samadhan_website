@@ -14,7 +14,7 @@ use App\Http\Controllers\SAuthController;
 use App\Http\Controllers\SProfileController;
 use App\Http\Controllers\SAdvertisementController;
 use App\Http\Controllers\VacancyController;
-
+use App\Http\Controllers\SuperAuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,10 +41,10 @@ Route::get('/instruction-to-applicants', [IndexController::class, 'instruction_a
 Route::get('/locations', [IndexController::class, 'locations'])->name('locations');
 
 
-Route::get('/super_admin', [SAuthController::class, 'login_page'])->name('super.login');
-Route::post('/super_admin', [SAuthController::class, 'check_login'])->name('super.post.login');
-Route::get('/super_admin/register', [SAuthController::class, 'register_page'])->name('super.register');
-Route::post('/super_admin/register', [SAuthController::class, 'register_post'])->name('super.post.register');
+Route::get('/super_admin', [SuperAuthController::class, 'login_page'])->name('super.login');
+Route::post('/super_admin', [SuperAuthController::class, 'check_login'])->name('super.post.login');
+Route::get('/super_admin/register', [SuperAuthController::class, 'register_page'])->name('super.register');
+Route::post('/super_admin/register', [SuperAuthController::class, 'register_post'])->name('super.post.register');
 
 Route::group(
     ['middleware' => 'guest'],
@@ -76,7 +76,7 @@ Route::group(
     ['prefix' => 'super_admin', 'middleware' => ['admin']],
     function () {
 
-        Route::get('/logout', [SAuthController::class, 'logout'])->name('super.logout');
+        Route::get('/logout', [SuperAuthController::class, 'logout'])->name('super.logout');
         Route::get('/dashboard', [SDashboardController::class, 'dashboard'])->name('super.dashboard');
 
         Route::get('/profile', [SProfileController::class, 'profile'])->name('super.profile');
