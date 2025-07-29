@@ -143,12 +143,16 @@
                         </a>
                     </div> -->
 
+@if(request()->routeIs('home'))
+
 
                     <div class="col-md-12">
                         <a class="navbar-brand" href="{{ route('home') }}">
                             <img src="assets/img/newlogo.jpg" class="logo-one" alt="Logo" id="logo-img">
                         </a>
                     </div>
+@endif
+
                 </div>
 
                 <nav class="navbar navbar-expand-md navbar-light">
@@ -222,7 +226,7 @@
                                     <li class="nav-item"><a href="{{ route('required_documents') }}"
                                             class="nav-link">Required Documents</a></li>
                                     <!-- Apply & Results -->
-                                    <li class="nav-item">
+                                    {{-- <li class="nav-item">
                                         <a href="portal/Apply/index.php" class="nav-link">Apply Online</a>
                                     </li>
                                     <li class="nav-item">
@@ -241,7 +245,7 @@
                                     <!-- Locations -->
                                     <li class="nav-item">
                                         <a href="{{ route('locations') }}" class="nav-link">Locations</a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
 
