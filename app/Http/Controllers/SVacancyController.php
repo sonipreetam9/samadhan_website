@@ -26,7 +26,7 @@ class SVacancyController extends Controller
             'application_fee_gen' => 'required|numeric',
             'application_fee_oth' => 'required|numeric',
             'qualifications' => 'required|string',
-            'description' => 'required|string',
+
             'location' => 'required|string',
             'salary_range' => 'required|string',
             'file' => 'required|mimes:pdf|max:20480', // 20 MB
@@ -60,7 +60,7 @@ class SVacancyController extends Controller
         $vacancy->application_fee_gen = $request->application_fee_gen;
         $vacancy->application_fee_oth = $request->application_fee_oth;
         $vacancy->qualifications = $request->qualifications;
-        $vacancy->description = $request->description;
+        $vacancy->age_limit = $request->age_limit;
         $vacancy->location = $request->location;
         $vacancy->salary_range = $request->salary_range;
         $vacancy->file = $newFileName;

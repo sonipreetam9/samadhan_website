@@ -24,7 +24,7 @@ class VacancyModel extends Model
         'file',
         'qualifications',
         'status',
-        'description',
+        'age_limit',
         'location',
         'salary_range',
         'total_post',

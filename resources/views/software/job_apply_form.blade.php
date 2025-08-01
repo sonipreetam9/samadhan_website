@@ -110,18 +110,18 @@
                             </div>
 
 
-                            <div class="col-6">
+                            <div class="col-6 col-md-3">
                                 <strong>Qualifications</strong>
                                 <div>{{ $vac->qualifications ?? '-' }}</div>
                             </div>
 
-                            <div class="col-6">
-                                <strong>Description</strong>
-                                <div>{{ $vac->description ?? '-' }}</div>
+                            <div class="col-6 col-md-3" >
+                                <strong>Age Limit</strong>
+                                <div>{{ $vac->age_limit ?? '-' }}</div>
                             </div>
 
                             @if($vac->file)
-                            <div class="col-12">
+                            <div class="col-6 col-md-3">
                                 <strong>Attached File</strong><br>
                                 <a href="{{ asset('uploads/'.$vac->file) }}" target="_blank"
                                     class="btn btn-sm btn-outline-info mt-1">

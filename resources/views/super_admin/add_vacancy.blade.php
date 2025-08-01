@@ -161,7 +161,7 @@
                                     </div>
 
                                     {{-- Qualifications --}}
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-floating">
                                             <textarea class="form-control" id="qualifications" name="qualifications"
                                                 placeholder="Enter required education/skills"
@@ -175,15 +175,15 @@
                                     </div>
 
                                     {{-- Description --}}
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-floating">
-                                            <textarea class="form-control" id="description" name="description"
+                                            <textarea class="form-control" id="age_limit" name="age_limit"
                                                 placeholder="Enter job responsibilities/details"
-                                                required>{{ old('description') }}</textarea>
-                                            <label for="description">Job Description</label>
-                                            <small class="form-text text-muted">Describe job duties, working hours, team
-                                                info, etc.</small>
-                                            @error('description') <small class="text-danger">{{ $message }}</small>
+                                                required>{{ old('age_limit') }}</textarea>
+                                            <label for="age_limit">Age Limit</label>
+                                            {{-- <small class="form-text text-muted">Describe job duties, working hours, team
+                                                info, etc.</small> --}}
+                                            @error('age_limit') <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
@@ -192,7 +192,7 @@
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control" id="location" name="location"
-                                                placeholder="e.g. New Delhi, Remote" value="{{ old('location') }}"
+                                                placeholder="e.g. New Delhi, Remote" value="Haryana"
                                                 required>
                                             <label for="location">Location</label>
                                             <small class="form-text text-muted">City or work location (use “Remote” if
@@ -206,11 +206,10 @@
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control" id="salary_range"
-                                                name="salary_range" placeholder="e.g. ₹30,000 – ₹50,000"
+                                                name="salary_range" placeholder=""
                                                 value="{{ old('salary_range') }}" required>
-                                            <label for="salary_range">Salary Range</label>
-                                            <small class="form-text text-muted">Mention monthly salary like “₹18000 -
-                                                ₹25000”.</small>
+                                            <label for="salary_range">Pay Scale</label>
+                                            {{-- <small class="form-text text-muted">Mention Pay Scale</small> --}}
                                             @error('salary_range') <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>

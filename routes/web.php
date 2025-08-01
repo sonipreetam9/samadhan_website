@@ -39,6 +39,7 @@ Route::get('/services', [IndexController::class, 'services'])->name('services');
 Route::get('/required-documents', [IndexController::class, 'required_documents'])->name('required_documents');
 Route::get('/instruction-to-applicants', [IndexController::class, 'instruction_applicants'])->name('instruction_to_applicants');
 Route::get('/locations', [IndexController::class, 'locations'])->name('locations');
+Route::get('/team', [IndexController::class, 'team'])->name('team');
 
 
 Route::get('/super_admin', [SuperAuthController::class, 'login_page'])->name('super.login');
@@ -68,8 +69,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
     Route::get('/apply-job-form/{vacancyID}', [ApplyJobController::class, 'vacancy_applying_form'])->name('user.apply.job');
     Route::post('/apply-job-form-post', [ApplyJobController::class, 'vancany_apply_post'])->name('user.apply.job.post');
-    Route::get('upload-documents-form/{applyed_id}/{vacancy_id}', [ApplyJobController::class, 'upload_documents_form'])->name('user.upload.documents');
     Route::get('/apply-job-list', [ApplyJobController::class, 'applyed_job_list'])->name('user.apply.job.list');
+
+
+
+
+    Route::get('upload-documents-form/{applyed_id}/{vacancy_id}', [ApplyJobController::class, 'upload_documents_form'])->name('user.upload.documents');
 });
 
 Route::group(

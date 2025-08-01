@@ -54,4 +54,8 @@ class IndexController extends Controller
          $page_title="Locations";
         return view('locations',compact('page_title'));
     }
+    public function team(){
+         $page_title="Our Team Members";
+        return view('team',compact('page_title'));
+    }
 }

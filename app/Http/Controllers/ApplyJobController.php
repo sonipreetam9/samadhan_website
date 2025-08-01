@@ -193,14 +193,15 @@ class ApplyJobController extends Controller
     public function upload_documents_form($applyed_id, $vacancy_id)
     {
 
-        $applyed_job=ApplyedJobModel::where('user_id',Auth::user()->id)->where('id',$applyed_id)->first();
-        if(!$applyed_job){
-            return redirect()->route('user.applyed.job.list')->with('error', 'You have not applied for this vacancy.');
+        $applyed_job = ApplyedJobModel::where('user_id', Auth::user()->id)->where('id', $applyed_id)->where('vacancy_id', $vacancy_id)->first();
+
+        if (!$applyed_job) {
+            return redirect()->route('user.apply.job.list')->with('error', 'You have not applied for this vacancy.');
         }
 
-        $required_doc=ApplyedJobDocumentModel::where('apply_job_id', $applyed_id)->get();
-        dd($required_doc);
+        $required_doc = ApplyedJobDocumentModel::where('apply_job_id', $applyed_id)->get();
+        // dd($required_doc);
 
-        return view('software.upload_documents', compact('applyed_job', 'vacancy_id'));
+        return view('software.upload_documents', compact('applyed_job', 'vacancy_id', 'required_doc'));
     }
 }
