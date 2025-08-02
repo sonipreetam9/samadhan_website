@@ -142,7 +142,7 @@ class ApplyJobController extends Controller
         // Optional fields — adjust if applicable
         $job->domicial_yes_no = $request->domicile ?? null;
         $job->phc_type = $request->phc_type ?? null;
-        $job->aadhar_card = $request->aadhar_card ?? null;
+
         $job->pan_card = $request->pan_card ?? null;
         $job->caste = $request->caste ?? null;
         $job->passport_image = $request->passport_image ?? null;
@@ -202,6 +202,89 @@ class ApplyJobController extends Controller
         $required_doc = ApplyedJobDocumentModel::where('apply_job_id', $applyed_id)->get();
         // dd($required_doc);
 
-        return view('software.upload_documents', compact('applyed_job', 'vacancy_id', 'required_doc'));
+        return view('software.upload_documents', compact('applyed_job', 'vacancy_id', 'required_doc', 'applyed_id', 'vacancy_id'));
+    }
+    public function upload_documents_post(Request $request, $applyed_id, $vacancy_id)
+    {
+        $applyed_job = ApplyedJobModel::where('user_id', Auth::user()->id)
+            ->where('id', $applyed_id)
+            ->where('vacancy_id', $vacancy_id)
+            ->first();
+
+        if (!$applyed_job) {
+            return redirect()->route('user.apply.job.list')->with('error', 'You have not applied for this vacancy.');
+        }
+
+        $required_qlicfiction_doc = ApplyedJobDocumentModel::where('apply_job_id', $applyed_id)->get();
+
+        // Validation rules
+        $rules = [
+            'aadhar_card_front' => 'required|mimes:jpg,jpeg,png,webp',
+            'aadhar_card_back'  => 'required|mimes:jpg,jpeg,png,webp',
+            'pan_card'          => 'required|mimes:jpg,jpeg,png,webp',
+            'caste'             => 'required|mimes:jpg,jpeg,png,webp',
+            'passport_image'    => 'required|mimes:jpg,jpeg,png,webp',
+            'sign'              => 'required|mimes:jpg,jpeg,png,webp',
+            'eligibility_1'     => 'nullable|mimes:jpg,jpeg,png,webp',
+            'eligibility_2'     => 'nullable|mimes:jpg,jpeg,png,webp',
+        ];
+
+        // Conditional validation for domicial
+        if ($applyed_job->domicial_yes_no == "Yes") {
+            $rules['domicial'] = 'required|mimes:jpg,jpeg,png,webp';
+        } else {
+            $rules['domicial'] = 'nullable|mimes:jpg,jpeg,png,webp';
+        }
+
+        $messages = [
+            'mimes' => 'Invalid file type! Only JPG, JPEG, PNG, WEBP files are allowed.',
+            'required' => 'This document is required.',
+        ];
+
+        $request->validate($rules, $messages);
+
+        // Upload destination
+        $uploadPath = public_path('uploads');
+
+        // Personal documents to upload and save to ApplyedJobModel
+        $fields = [
+            'aadhar_card_front',
+            'aadhar_card_back',
+            'pan_card',
+            'caste',
+            'passport_image',
+            'domicial',
+            'eligibility_1',
+            'eligibility_2',
+            'sign',
+        ];
+
+        foreach ($fields as $field) {
+            if ($request->hasFile($field)) {
+                $file = $request->file($field);
+                $filename = time() . '_' . $field . '.' . $file->getClientOriginalExtension();
+                $file->move($uploadPath, $filename);
+                $applyed_job->$field = 'uploads/' . $filename;
+            }
+        }
+
+        $applyed_job->save();
+
+        if ($request->hasFile('education_docs')) {
+            foreach ($request->file('education_docs') as $doc_id => $file) {
+                $doc = ApplyedJobDocumentModel::where('id', $doc_id)
+                    ->where('apply_job_id', $applyed_id)
+                    ->first();
+
+                if ($doc && $file) {
+                    $filename = time() . '_edu_' . $doc_id . '.' . $file->getClientOriginalExtension();
+                    $file->move($uploadPath, $filename);
+                    $doc->file_link = 'uploads/' . $filename;
+                    $doc->save();
+                }
+            }
+        }
+        // dd("hello");
+        return redirect()->route('make.payment.page',['applyed_id'=>$applyed_id,'vacancy_id'=>$vacancy_id])->with('success', 'All documents uploaded and saved successfully.');
     }
 }

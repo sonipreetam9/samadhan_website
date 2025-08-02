@@ -65,7 +65,7 @@
                                         <td>
                                             <a href="{{ asset('uploads/'.$vacancy->file) }}"
                                                 class="btn btn-sm btn-success" target="_blank">View</a>
-                                           
+
                                         </td>
                                     </tr>
 

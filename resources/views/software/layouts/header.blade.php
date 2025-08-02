@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset($small_logo) }}" />
-    <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css')}}" />
+    {{-- <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css')}}" /> --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     {{--

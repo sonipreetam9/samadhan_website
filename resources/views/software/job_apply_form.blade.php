@@ -51,10 +51,10 @@
                                 <div>{{ $vac->advertisement->advt_number ?? '-' }}</div>
                             </div>
 
-                            <div class="col-6 col-md-3">
+                            {{-- <div class="col-6 col-md-3">
                                 <strong>Vacancy Number</strong>
                                 <div>{{ $vac->vacancy_number ?? '-' }}</div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-6 col-md-3">
                                 <strong>Post Name</strong>

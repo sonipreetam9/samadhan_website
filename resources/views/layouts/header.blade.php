@@ -202,7 +202,7 @@
 
                             <!-- Latest News -->
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Our Team</a>
+                                <a href="{{ route('team') }}" class="nav-link">Our Team</a>
                             </li>
 
                             <!-- Gallery -->

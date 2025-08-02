@@ -30,15 +30,18 @@
                                 class="table table-bordered table-hover table-striped align-middle w-100">
                                <thead class="table-dark">
                                     <tr>
-                                        <th>#</th>
+                                        <th>Sr_No</th>
                                         <th>Advt_No.</th>
-                                        <th>Vacancy_No.</th>
                                         <th>Post</th>
-                                        <th>Post Date</th>
-                                        <th>Last Date</th>
+                                        <th>Pay_Scale</th>
+                                        <th>Age</th>
+                                        <th>Total_Post</th>
+                                        <th>Qualification</th>
                                         <th>Category</th>
                                         <th>Fee (GEN)</th>
                                         <th>Fee (OTH)</th>
+                                        <th>Post Date</th>
+                                        <th>Last Date</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -48,13 +51,16 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $vacancy->advertisement->advt_number ?? "NULL" }}</td>
-                                        <td>{{ $vacancy->vacancy_number }}</td>
                                         <td>{{ $vacancy->post }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($vacancy->post_date)->format('d-m-Y') }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($vacancy->last_date)->format('d-m-Y') }}</td>
+                                        <td>{{ $vacancy->salary_range }}</td>
+                                        <td>{{ $vacancy->age_limit }}</td>
+                                        <td>{{ $vacancy->total_post }}</td>
+                                        <td>{{ $vacancy->qualifications }}</td>
                                         <td>{{ $vacancy->category }}</td>
                                         <td>₹{{ $vacancy->application_fee_gen }}</td>
                                         <td>₹{{ $vacancy->application_fee_oth }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($vacancy->post_date)->format('d-m-Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($vacancy->last_date)->format('d-m-Y') }}</td>
                                         <td>
                                             @if($vacancy->status == 1)
                                             <span class="badge bg-success">Active</span>

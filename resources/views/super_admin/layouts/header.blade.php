@@ -18,7 +18,7 @@
     {{-- <link href="{{ asset('software/assets/libs/jsvectormap/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" /> --}}
 
     <!-- Swiper slider css -->
-    <link href="{{ asset('software/assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('software/assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" /> --}}
 
     <!-- Layout config Js -->
     <script src="{{ asset('software/assets/js/layout.js') }}"></script>

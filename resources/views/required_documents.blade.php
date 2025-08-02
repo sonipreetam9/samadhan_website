@@ -14,19 +14,23 @@
                 <div class="about-content">
                     <div class="section-title">
                         <span class="sub-title">{{ $page_title }}</span>
-                        <h2>Most Important Documents</h2>
+                        <h3>Most Important Documents</h3>
                     </div>
 
-
+                    <style>
+                        .li-rr {
+                            font-size: 20px;
+                        }
+                     </style>
                     <ul>
-                        <li>Qualification Certificate</li>
-                        <li>Aadhar Card</li>
-                        <li>Pan Card</li>
-                        <li>Domicile Certificate</li>
-                        <li>Caste Certificate (Reservations)</li>
-                        <li>Passport size Photograph</li>
-                        <li>Experience Cerificate</li>
-                        <li>Signature</li>
+                        <li class="li-rr">Qualification Certificate</li>
+                        <li class="li-rr">Aadhar Card</li>
+                        <li class="li-rr">Pan Card</li>
+                        <li class="li-rr">Domicile Certificate</li>
+                        <li class="li-rr">Caste Certificate (Reservations)</li>
+                        <li class="li-rr">Passport size Photograph</li>
+                        <li class="li-rr">Experience Cerificate</li>
+                        <li class="li-rr">Signature</li>
                     </ul>
 
 

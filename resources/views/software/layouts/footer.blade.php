@@ -6,11 +6,11 @@
                     document.write(new Date().getFullYear())
                 </script> © {{ $web_name }}.
             </div>
-            <div class="col-sm-6">
+            {{-- <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
                     Design & Develop by Techgeometry Pvt Ltd.
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </footer>
@@ -28,7 +28,7 @@
 </button>
 <!--end back-to-top-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> --}}
 {{-- <script src="{{ asset('https://cdn.datatables.net/2.3.0/js/dataTables.min.js') }}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
@@ -60,8 +60,8 @@
 {{-- <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script> --}}
 
 
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+{{-- <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script> --}}
 {{-- <script>
     let table = new DataTable('#myTable');
 </script> --}}

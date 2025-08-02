@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SDashboardController;
 use App\Http\Controllers\SAuthController;
@@ -75,6 +76,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 
     Route::get('upload-documents-form/{applyed_id}/{vacancy_id}', [ApplyJobController::class, 'upload_documents_form'])->name('user.upload.documents');
+    Route::post('upload-documents-form-post/{applyed_id}/{vacancy_id}', [ApplyJobController::class, 'upload_documents_post'])->name('user.upload.documents.post');
+
+
+
+
+    Route::get('make-payment/{applyed_id}/{vacancy_id}', [PaymentController::class, 'payment_page'])->name('make.payment.page');
 });
 
 Route::group(

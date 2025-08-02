@@ -28,14 +28,17 @@
                         <h4 class="mb-0 flex-grow-1 text-white">Uploads Documents</h4>
                     </div>
 
-                    <form method="POST" action="{{ route('user.apply.job.post') }}" enctype="multipart/form-data" id="candidateForm" class="card-body">
+                    <form method="POST"
+                        action="{{ route('user.upload.documents.post',['applyed_id'=>$applyed_id,'vacancy_id'=>$vacancy_id]) }}"
+                        enctype="multipart/form-data" id="candidateForm" class="card-body">
                         @csrf
 
                         <div class="row gy-3">
                             {{-- Aadhar Card Front --}}
                             <div class="col-12 col-md-3">
                                 <label>Aadhar Card Front</label>
-                                <input type="file" name="aadhar_card_front" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp" required>
+                                <input type="file" name="aadhar_card_front" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp" required>
                                 <img id="preview_aadhar_card_front" class="img-fluid mt-1 d-none border rounded" />
                                 @error('aadhar_card_front')
                                 <small class="text-danger">{{ $message }}</small>
@@ -45,7 +48,8 @@
                             {{-- Aadhar Card Back --}}
                             <div class="col-12 col-md-3">
                                 <label>Aadhar Card Back</label>
-                                <input type="file" name="aadhar_card_back" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp" required>
+                                <input type="file" name="aadhar_card_back" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp" required>
                                 <img id="preview_aadhar_card_back" class="img-fluid mt-1 d-none border rounded" />
                                 @error('aadhar_card_back')
                                 <small class="text-danger">{{ $message }}</small>
@@ -55,7 +59,8 @@
                             {{-- PAN Card --}}
                             <div class="col-12 col-md-3">
                                 <label>PAN Card</label>
-                                <input type="file" name="pan_card" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp" required>
+                                <input type="file" name="pan_card" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp" required>
                                 <img id="preview_pan_card" class="img-fluid mt-1 d-none border rounded" />
                                 @error('pan_card')
                                 <small class="text-danger">{{ $message }}</small>
@@ -65,7 +70,8 @@
                             {{-- Caste Certificate --}}
                             <div class="col-12 col-md-3">
                                 <label>Caste Certificate</label>
-                                <input type="file" name="caste" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp" required>
+                                <input type="file" name="caste" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp" required>
                                 <img id="preview_caste" class="img-fluid mt-1 d-none border rounded" />
                                 @error('caste')
                                 <small class="text-danger">{{ $message }}</small>
@@ -75,27 +81,32 @@
                             {{-- Passport Size Photo --}}
                             <div class="col-12 col-md-3">
                                 <label>Passport Size Photo</label>
-                                <input type="file" name="passport_image" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp" required>
+                                <input type="file" name="passport_image" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp" required>
                                 <img id="preview_passport_image" class="img-fluid mt-1 d-none border rounded" />
                                 @error('passport_image')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-@if
+                            @if($applyed_job->domicial_yes_no=="Yes")
+
                             {{-- Domicile Certificate --}}
                             <div class="col-12 col-md-3">
                                 <label>Domicile Certificate</label>
-                                <input type="file" name="domicial" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp" required>
+                                <input type="file" name="domicial" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp" required>
                                 <img id="preview_domicial" class="img-fluid mt-1 d-none border rounded" />
                                 @error('domicial')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
 
+                            @endif
                             {{-- Eligibility Document 1 --}}
                             <div class="col-12 col-md-3">
                                 <label>Eligibility Document 1</label>
-                                <input type="file" name="eligibility_1" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp">
+                                <input type="file" name="eligibility_1" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp">
                                 <img id="preview_eligibility_1" class="img-fluid mt-1 d-none border rounded" />
                                 @error('eligibility_1')
                                 <small class="text-danger">{{ $message }}</small>
@@ -105,7 +116,8 @@
                             {{-- Eligibility Document 2 --}}
                             <div class="col-12 col-md-3">
                                 <label>Eligibility Document 2</label>
-                                <input type="file" name="eligibility_2" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp">
+                                <input type="file" name="eligibility_2" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp">
                                 <img id="preview_eligibility_2" class="img-fluid mt-1 d-none border rounded" />
                                 @error('eligibility_2')
                                 <small class="text-danger">{{ $message }}</small>
@@ -115,7 +127,8 @@
                             {{-- Signature Image --}}
                             <div class="col-12 col-md-3">
                                 <label>Signature Image</label>
-                                <input type="file" name="sign" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp" required>
+                                <input type="file" name="sign" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp" required>
                                 <img id="preview_sign" class="img-fluid mt-1 d-none border rounded" />
                                 @error('sign')
                                 <small class="text-danger">{{ $message }}</small>
@@ -123,19 +136,17 @@
                             </div>
 
                             @foreach ($required_doc as $doc)
-
-
-                            {{-- $doc->education_name --}}
                             <div class="col-12 col-md-3">
-                                <label>{{  $doc->education_name }} (File)</label>
-                                <input type="file" name="sign" class="form-control file-input" accept=".jpg,.jpeg,.png,.webp" required>
-                                <img id="preview_sign" class="img-fluid mt-1 d-none border rounded" />
-                                @error('sign')
+                                <label>{{ $doc->education_name }} (File)</label>
+                                <input type="file" name="education_docs[{{ $doc->id }}]" class="form-control file-input"
+                                    accept=".jpg,.jpeg,.png,.webp" required>
+                                <img id="preview_{{ $doc->id }}" class="img-fluid mt-1 d-none border rounded" />
+                                @error("education_docs.{$doc->id}")
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-
                             @endforeach
+
 
                             {{-- Submit --}}
                             <div class="col-12 mt-3 text-center">
