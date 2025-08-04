@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\VacancyModel;
 use App\Models\AdvertisementModel;
 use Illuminate\Support\Str;
+
 class SVacancyController extends Controller
 {
     public function vacancy()
     {
-         $ads=AdvertisementModel::orderBy('id','DESC')->get();
-        return view('super_admin.add_vacancy',compact('ads'));
+        $ads = AdvertisementModel::orderBy('id', 'DESC')->get();
+        return view('super_admin.add_vacancy', compact('ads'));
     }
     public function add_vacancy(Request $request)
     {
@@ -26,18 +27,20 @@ class SVacancyController extends Controller
             'application_fee_gen' => 'required|numeric',
             'application_fee_oth' => 'required|numeric',
             'qualifications' => 'required|string',
-
             'location' => 'required|string',
             'salary_range' => 'required|string',
-            'file' => 'required|mimes:pdf|max:20480', // 20 MB
+
+            // 👇 Replace PDF validation with image validation
+            'file' => 'required|image|mimes:jpeg,jpg,png|max:5120', // max 5 MB
         ]);
 
         // Generate vacancy number like 160725ABCD
         $vacancyNumber = date('dmy') . strtoupper(Str::random(4));
 
-        // Handle file upload
-        $pdf = $request->file('file');
-        $newFileName = date('Ymd.His') . '.pdf';
+        // Handle image upload
+        $image = $request->file('file');
+        $extension = $image->getClientOriginalExtension();
+        $newFileName = date('Ymd.His') . '.' . $extension;
         $uploadPath = public_path('uploads');
 
         // Create folder if not exists
@@ -46,7 +49,8 @@ class SVacancyController extends Controller
         }
 
         // Move file to public/uploads
-        $pdf->move($uploadPath, $newFileName);
+        $image->move($uploadPath, $newFileName);
+
 
         // Insert into database
         $vacancy = new VacancyModel();
@@ -68,11 +72,10 @@ class SVacancyController extends Controller
 
         return redirect()->back()->with('success', 'Vacancy added successfully.');
     }
-      public function vacancy_list()
+    public function vacancy_list()
     {
-        $vacancies = VacancyModel::with('advertisement')->orderBy('id','DESC')->get();
+        $vacancies = VacancyModel::with('advertisement')->orderBy('id', 'DESC')->get();
 
-        return view('super_admin.all_vacancy',compact('vacancies'));
+        return view('super_admin.all_vacancy', compact('vacancies'));
     }
-
 }

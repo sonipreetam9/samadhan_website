@@ -11,14 +11,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset($small_logo) }}" />
-    {{-- <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css')}}" /> --}}
+    {{--
+    <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css')}}" />
+    --}}
 
-    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
+    {{--
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
     <!-- jsvectormap css -->
-    {{-- <link href="{{ asset('software/assets/libs/jsvectormap/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" /> --}}
+    {{--
+    <link href="{{ asset('software/assets/libs/jsvectormap/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
+    --}}
 
     <!-- Swiper slider css -->
-    {{-- <link href="{{ asset('software/assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" /> --}}
+    {{--
+    <link href="{{ asset('software/assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
+    --}}
 
     <!-- Layout config Js -->
     <script src="{{ asset('software/assets/js/layout.js') }}"></script>
@@ -112,7 +119,8 @@
                                         src="{{ asset('software/assets/images/users/avatar-1.jpg') }}"
                                         alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::guard('admin')->user()->email }}</span>
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{
+                                            Auth::guard('admin')->user()->email }}</span>
                                         <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
                                     </span>
                                 </span>
@@ -158,7 +166,7 @@
                     <span class="logo-sm">
                         <img src="{{ asset($small_logo) }}" alt="" height="22">
                     </span>
-                    <span class="logo-lg" >
+                    <span class="logo-lg">
                         <img src="{{ asset($small_logo) }}" alt="Logo" width="70">
                     </span>
                 </a>
@@ -214,7 +222,12 @@
                             </a>
                         </li>
 
-
+                        <li class="nav-item">
+                            <a class="nav-link menu-link {{ request()->routeIs('super.payment.list') ? 'active' : '' }}"
+                                href="{{ route('super.payment.list') }}">
+                                <i class="mdi mdi-view-list"></i> <span>Payment Requests</span>
+                            </a>
+                        </li>
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Admin</span>
                         </li>

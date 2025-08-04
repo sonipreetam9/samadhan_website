@@ -48,5 +48,20 @@ class ApplyedJobModel extends Model
         'eligibility_1',
         'eligibility_2',
         'sign',
+        'fees',
+        'payment_status',
+        'payment_utr',
+        'payment_proof',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function vacancy()
+    {
+        return $this->belongsTo(VacancyModel::class, 'vacancy_id', 'vacancy_number');
+    }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PrintFormController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SDashboardController;
 use App\Http\Controllers\SAuthController;
@@ -81,7 +82,14 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 
 
+    Route::get('/print-form/{applyed_id}/{vacancy_id}', [PrintFormController::class, 'print_form'])->name('user.print.form');
+
+
+
+
+
     Route::get('make-payment/{applyed_id}/{vacancy_id}', [PaymentController::class, 'payment_page'])->name('make.payment.page');
+    Route::post('make-payment-post/{applyed_id}/{vacancy_id}', [PaymentController::class, 'payment_post'])->name('make.payment.post');
 });
 
 Route::group(
@@ -99,9 +107,17 @@ Route::group(
         Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
 
 
+        Route::get('/all-payments-list', [PaymentController::class, 'new_payment_list'])->name('super.payment.list');
+        Route::get('/update-payment-status/{id}/{status}', [PaymentController::class, 'update_payment_status'])->name('super.update.payment.status');
+
+
 
         Route::get('/add-advertisement', [SAdvertisementController::class, 'add_advertisement'])->name('super.add.advertisement.page');
         Route::post('/add-advertisement-post', [SAdvertisementController::class, 'add_advertisement_post'])->name('super.add.advertisement.post');
+
+
+
+
     }
 );
 

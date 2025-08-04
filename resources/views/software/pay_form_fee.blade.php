@@ -29,13 +29,18 @@
                     </div>
                   <div class="container">
                     <div class="card-body">
-                        <form action="{{ route('make.payment.page', ['applyed_id' => $applyed_id, 'vacancy_id' => $vacancy_id]) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('make.payment.post', ['applyed_id' => $applyed_id, 'vacancy_id' => $vacancy_id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
                                 <div class="col-md-12">
                                     <div class="mb-3 text-center">
                                     <img src="{{ asset('assets/img/sacnner.jpg') }}" alt="" width="300">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3 text-center">
+                                    <h2 class="text-success">Pay Fee ₹ {{ $applyed_job->fees }}</h2>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -46,8 +51,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="mb-3">
-                                        <label for="screenshot" class="form-label">Upload UTR Number</label>
-                                        <input type="file" name="screenshot" id="screenshot" class="form-control" required>
+                                        <label for="screenshot" class="form-label">Upload Payment Proof</label>
+                                        <input type="file" name="screenshot" id="screenshot" class="form-control" required accept=".jpeg,.png,.jpg,.gif">
                                     </div>
                                 </div>
                             </div>

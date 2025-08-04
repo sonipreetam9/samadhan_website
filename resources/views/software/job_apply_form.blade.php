@@ -422,13 +422,13 @@
         </div>
 
         {{-- Declaration --}}
-        <div class="col-md-12">
+        {{-- <div class="col-md-12">
             <label>Declaration</label>
             <textarea name="declaration" class="form-control @error('declaration') is-invalid @enderror" rows="3" required>{{ old('declaration', 'I hereby declare that...') }}</textarea>
             @error('declaration')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
-        </div>
+        </div> --}}
 
         {{-- Place & Date --}}
         <div class="col-md-6">

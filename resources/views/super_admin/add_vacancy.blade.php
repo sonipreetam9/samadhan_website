@@ -215,14 +215,13 @@
                                         </div>
                                     </div>
 
-                                    {{-- PDF Upload --}}
+                                    {{-- Image Upload --}}
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="file" class="form-control" id="file" name="file" accept=".pdf"
-                                                placeholder="Upload PDF only" required>
-                                            <label for="file">Upload PDF</label>
-                                            <small class="form-text text-muted">Upload vacancy notice or brochure in PDF
-                                                format only.</small>
+                                            <input type="file" class="form-control" id="file" name="file" accept=".jpeg,.jpg,.png"
+                                                placeholder="Upload Image" required>
+                                            <label for="file">Upload Image</label>
+                                            <small class="form-text text-muted">Upload vacancy notice .</small>
                                             @error('file') <small class="text-danger">{{ $message }}</small> @enderror
                                         </div>
                                     </div>
@@ -250,14 +249,18 @@
         this.value = this.value.replace(/\D/g, '');
     });
 
-    // PDF file only
-    $('#file').on('change', function () {
-        var file = this.files[0];
-        if (file && file.type !== 'application/pdf') {
-            alert("Only PDF files are allowed.");
+  // Allow only image files (jpg, jpeg, png)
+$('#file').on('change', function () {
+    var file = this.files[0];
+    if (file) {
+        var allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+        if (!allowedTypes.includes(file.type)) {
+            alert("Only JPG, JPEG, or PNG image files are allowed.");
             $(this).val(''); // Clear the input
         }
-    });
+    }
+});
+
 
     // Post date must not be greater than last date
     $('#post_date, #last_date').on('change', function () {

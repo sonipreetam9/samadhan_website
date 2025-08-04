@@ -24,6 +24,18 @@
                     <div class="card-header bg-primary ">
                         <h5 class="card-title mb-0 text-white">Available Vacancy List</h5>
                     </div>
+                    <div class="p-2">
+
+                        @if(Session::has('success'))
+                        <p class="alert alert-success">{{ Session::get('success') }}</p>
+                        @endif
+                        @if(Session::has('error'))
+                        <p class="alert alert-danger">{{ Session::get('error') }}</p>
+                        @endif
+                    </div>
+
+
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="myTable"
@@ -47,7 +59,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   @foreach ($vacancies as $index => $vacancy)
+                                    @foreach ($vacancies as $index => $vacancy)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $vacancy->advertisement->advt_number ?? "NULL" }}</td>

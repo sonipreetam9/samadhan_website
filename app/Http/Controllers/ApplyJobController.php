@@ -11,12 +11,30 @@ use Illuminate\Support\Facades\App;
 
 class ApplyJobController extends Controller
 {
-    public function vacancy_applying_form($vacancyID)
-    {
-        $vacancy = VacancyModel::where('status', 1)->where('vacancy_number', $vacancyID)->with('advertisement')->first();
-        // dd("helooggggg",$vacancy);
-        return view('software.job_apply_form', compact('vacancy'));
+   public function vacancy_applying_form($vacancyID)
+{
+    $vacancy = VacancyModel::where('status', 1)
+        ->where('vacancy_number', $vacancyID)
+        ->with('advertisement')
+        ->first();
+
+    $user_id = Auth::user()->id;
+    $already_applyed = ApplyedJobModel::where('user_id', $user_id)
+        ->where('vacancy_id', $vacancyID)
+        ->first();
+
+    if ($already_applyed && (
+        (!empty($already_applyed->candidate_name) && !empty($already_applyed->dob_day))
+    )) {
+        return redirect()->route('user.upload.documents', [
+            'applyed_id' => $already_applyed->id,
+            'vacancy_id' => $vacancyID
+        ])->with('success-form', 'Form submitted successfully!');
     }
+
+    return view('software.job_apply_form', compact('vacancy'));
+}
+
     public function vancany_apply_post(Request $request)
     {
         $request->validate([
@@ -95,13 +113,22 @@ class ApplyJobController extends Controller
             'exp_days' => 'nullable|integer|min:0|max:31',
 
             'visible_mark' => 'nullable',
-            'declaration' => 'required|string|min:10',
+
             'place' => 'required|string|max:100',
             'form_date' => 'required|date|before_or_equal:today',
         ]);
 
 
         $vacancy_id = $request->vancancy_id;
+
+        $vacancy = VacancyModel::where('vacancy_number', $vacancy_id)->first();
+
+        if ($request->category == "GEN") {
+            $fees = $vacancy->application_fee_gen;
+        } else {
+            $fees = $vacancy->application_fee_oth;
+        }
+
         $user_id = Auth::user()->id;
         $already_applyed = ApplyedJobModel::where('user_id', $user_id)->where('vacancy_id', $vacancy_id)->get();
 
@@ -114,7 +141,6 @@ class ApplyJobController extends Controller
 
         // 1. Save main candidate data
         $job = new ApplyedJobModel();
-        $job->user_id = Auth::user()->id;
         $job->vacancy_id = $request->vancancy_id; // if you have vacancy id, set it here
         $job->advertisement_no = $request->advertisement_no;
         $job->category_no = $request->category_no;
@@ -135,7 +161,7 @@ class ApplyJobController extends Controller
         $job->exp_months = $request->exp_months;
         $job->exp_days = $request->exp_days;
         $job->visible_mark = $request->visible_mark;
-        $job->declaration = $request->declaration;
+      
         $job->place = $request->place;
         $job->form_date = $request->form_date;
 
@@ -150,6 +176,7 @@ class ApplyJobController extends Controller
         $job->eligibility_1 = $request->eligibility_1 ?? null;
         $job->eligibility_2 = $request->eligibility_2 ?? null;
         $job->sign = $request->sign ?? null;
+        $job->fees = $fees;
 
         $job->save();
 
@@ -185,11 +212,25 @@ class ApplyJobController extends Controller
         return redirect()->route('user.upload.documents', ['applyed_id' => $job->id, 'vacancy_id' => $vacancy_id])->with('success-form', 'Form submitted successfully!');
     }
 
+
+
+
+
     public function applyed_job_list()
     {
-        dd("heloo");
-        return view('apply-job');
+// Authenticated user की apply की गई jobs + vacancy relation भी लाएँ
+    $applyed_jobs = ApplyedJobModel::where('user_id', Auth::id())
+                        ->with('vacancy') // Add relation in model below
+                        ->orderBy('id', 'DESC')
+                        ->get();
+
+// dd($applyed_jobs);
+    return view('software.applyed_job_list', compact('applyed_jobs'));
     }
+
+
+
+
     public function upload_documents_form($applyed_id, $vacancy_id)
     {
 
@@ -199,8 +240,34 @@ class ApplyJobController extends Controller
             return redirect()->route('user.apply.job.list')->with('error', 'You have not applied for this vacancy.');
         }
 
+
         $required_doc = ApplyedJobDocumentModel::where('apply_job_id', $applyed_id)->get();
-        // dd($required_doc);
+
+        $allUploaded = true;
+
+foreach ($required_doc as $doc) {
+    if (empty($doc->file_link)) {
+        $allUploaded = false;
+        break;
+    }
+}
+
+if ($allUploaded) {
+    return redirect()->route('make.payment.page', [
+        'applyed_id' => $applyed_id,
+        'vacancy_id' => $vacancy_id
+    ])->with('success', 'All documents uploaded and saved successfully.');
+}
+
+
+
+        //  if(!$required_doc->candidate_name =="" && !$required_doc->dob_day=="" ){
+
+        //            return redirect()->route('user.upload.documents', ['applyed_id' => $already_applyed->id, 'vacancy_id' => $vacancyID])->with('success-form', 'Form submitted successfully!');
+        //         }
+
+
+
 
         return view('software.upload_documents', compact('applyed_job', 'vacancy_id', 'required_doc', 'applyed_id', 'vacancy_id'));
     }
@@ -284,7 +351,9 @@ class ApplyJobController extends Controller
                 }
             }
         }
-        // dd("hello");
-        return redirect()->route('make.payment.page',['applyed_id'=>$applyed_id,'vacancy_id'=>$vacancy_id])->with('success', 'All documents uploaded and saved successfully.');
+
+
+
+        return redirect()->route('make.payment.page', ['applyed_id' => $applyed_id, 'vacancy_id' => $vacancy_id])->with('success', 'All documents uploaded and saved successfully.');
     }
 }

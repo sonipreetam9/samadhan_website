@@ -206,7 +206,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link " href="">
+                            <a class="nav-link menu-link {{ request()->routeIs('user.apply.job.list') ? 'active' : '' }}" href="{{ route('user.apply.job.list') }}">
                                 <i class="mdi mdi mdi-form-select"></i> <span>Applyed List</span>
                             </a>
                         </li>
