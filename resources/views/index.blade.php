@@ -262,9 +262,8 @@
                     <h3>
                         <a href="#">Be a volunteer</a>
                     </h3>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply rom text. Contrary to popular belief is
-                        not simply.</p>
-                    <a class="feature-btn" href="#">Join Now</a>
+                    <p>समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड में हम ऐसे समर्पित नागरिकों की तलाश में हैं जो समाज में बदलाव लाने की भावना से प्रेरित हों</p>
+                    <a class="feature-btn" href="{{ route('login') }}">Join Now</a>
                 </div>
             </div>
 
@@ -274,9 +273,9 @@
                     <h3>
                         <a href="#">Donate now</a>
                     </h3>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply rom text. Contrary to popular belief is
-                        not simply.</p>
-                    <a class="feature-btn" href="#">Join Now</a>
+                    <p>समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड समाज के हर उस वर्ग के लिए कार्य करता है जिसे सहयोग और सहारे की आवश्यकता है
+</p>
+                    <a class="feature-btn" href="{{ route('login') }}">Join Now</a>
                 </div>
             </div>
 
@@ -286,9 +285,9 @@
                     <h3>
                         <a href="#">Show your love</a>
                     </h3>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply rom text. Contrary to popular belief is
-                        not simply.</p>
-                    <a class="feature-btn" href="#">Join Now</a>
+                    <p>समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड के साथ जुड़कर आप उन हज़ारों लोगों की ज़िंदगी में रोशनी ला सकते हैं जिन्हें आपकी ज़रूरत है।
+</p>
+                    <a class="feature-btn" href="{{ route('login') }}">Join Now</a>
                 </div>
             </div>
         </div>

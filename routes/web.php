@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PrintFormController;
 use App\Http\Controllers\ProfileController;
@@ -33,6 +34,7 @@ Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/about-us', [IndexController::class, 'about'])->name('about');
 Route::get('/gallery', [IndexController::class, 'gallery'])->name('gallery');
 Route::get('/contact-us', [IndexController::class, 'contact'])->name('contact');
+Route::post('/contact-us-post', [ContactUsController::class, 'contact_post'])->name('contact.post');
 Route::get('/overview', [IndexController::class, 'overview'])->name('overview');
 Route::get('/our-company', [IndexController::class, 'our_company'])->name('our_company');
 Route::get('/mission', [IndexController::class, 'mission'])->name('mission');
@@ -104,8 +106,10 @@ Route::group(
         Route::get('/add-vacancy', [SVacancyController::class, 'vacancy'])->name('super.add.vacancy');
         Route::post('/add-vacancy-post', [SVacancyController::class, 'add_vacancy'])->name('super.add.vacancy.post');
         Route::get('/all-vacancy-list', [SVacancyController::class, 'vacancy_list'])->name('super.vacancy.list');
-        Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
 
+
+        Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
+ Route::get('/contact-messages', [SCandidateController::class, 'contact_list'])->name('super.contact');
 
         Route::get('/all-payments-list', [PaymentController::class, 'new_payment_list'])->name('super.payment.list');
         Route::get('/update-payment-status/{id}/{status}', [PaymentController::class, 'update_payment_status'])->name('super.update.payment.status');

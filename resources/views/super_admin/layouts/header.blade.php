@@ -186,7 +186,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link menu-link {{ request()->routeIs('super.dashboard') ? 'active' : '' }}"
-                                href="">
+                                href="{{ route('super.dashboard') }}">
                                 <i class="mdi mdi-view-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
@@ -235,6 +235,12 @@
                             <a class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}"
                                 href="{{ route('profile') }}">
                                 <i class="mdi mdi-account-circle-outline"></i> <span>Profile</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link {{ request()->routeIs('super.contact') ? 'active' : '' }}"
+                                href="{{ route('super.contact') }}">
+                                <i class="mdi mdi-account-circle-outline"></i> <span>Contact</span>
                             </a>
                         </li>
                         <li class="nav-item">

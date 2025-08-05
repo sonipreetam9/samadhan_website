@@ -45,89 +45,73 @@
 <!-- Contact -->
 <div class="contact-area pb-70">
     <div class="container">
-<form id="contactForm">
-    <h2>चलिए बात करते हैं...!</h2>
-    <p>हमसे संपर्क करें यदि आपके पास कोई प्रश्न, सुझाव या जानकारी हो। हम आपकी सहायता के लिए हमेशा तैयार हैं। नीचे दिए गए फॉर्म को भरें और हम शीघ्र ही आपसे संपर्क करेंगे।</p>
-    <div class="row">
+<form action="{{ route('contact.post') }}" method="POST" >
+    @csrf
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>✅</strong> {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>⚠ त्रुटियाँ पाई गईं:</strong>
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label>
-                    <i class="icofont-user-alt-3"></i>
-                </label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="नाम" required
-                    data-error="कृपया अपना नाम दर्ज करें">
-                <div class="help-block with-errors"></div>
+    <h2 class="mb-3">चलिए बात करते हैं...!</h2>
+    <p class="mb-4">हमसे संपर्क करें यदि आपके पास कोई प्रश्न, सुझाव या जानकारी हो। हम आपकी सहायता के लिए हमेशा तैयार हैं। नीचे दिए गए फॉर्म को भरें और हम शीघ्र ही आपसे संपर्क करेंगे।</p>
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" name="name" id="name" class="form-control" placeholder="नाम" required>
+                <label for="name"><i class="icofont-user-alt-3 me-2"></i>नाम</label>
             </div>
         </div>
 
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label>
-                    <i class="icofont-ui-email"></i>
-                </label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="ईमेल" required
-                    data-error="कृपया अपना ईमेल दर्ज करें">
-                <div class="help-block with-errors"></div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="email" name="email" id="email" class="form-control" placeholder="ईमेल" required>
+                <label for="email"><i class="icofont-ui-email me-2"></i>ईमेल</label>
             </div>
         </div>
 
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label>
-                    <i class="icofont-ui-call"></i>
-                </label>
-                <input type="text" name="phone_number" id="phone_number" placeholder="फोन नंबर" required
-                    data-error="कृपया अपना नंबर दर्ज करें" class="form-control">
-                <div class="help-block with-errors"></div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="फोन नंबर" required>
+                <label for="phone_number"><i class="icofont-ui-call me-2"></i>फोन नंबर</label>
             </div>
         </div>
 
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label>
-                    <i class="icofont-notepad"></i>
-                </label>
-                <input type="text" name="msg_subject" id="msg_subject" class="form-control"
-                    placeholder="विषय" required data-error="कृपया विषय दर्ज करें">
-                <div class="help-block with-errors"></div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" name="msg_subject" id="msg_subject" class="form-control" placeholder="विषय" required>
+                <label for="msg_subject"><i class="icofont-notepad me-2"></i>विषय</label>
             </div>
         </div>
 
-        <div class="col-lg-12">
-            <div class="form-group">
-                <label>
-                    <i class="icofont-comment"></i>
-                </label>
-                <textarea name="message" class="form-control" id="message" cols="30" rows="8"
-                    placeholder="अपना संदेश लिखें" required data-error="कृपया अपना संदेश लिखें"></textarea>
-                <div class="help-block with-errors"></div>
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea name="message" id="message" class="form-control" placeholder="अपना संदेश लिखें" style="height: 150px;" required></textarea>
+                <label for="message"><i class="icofont-comment me-2"></i>अपना संदेश लिखें</label>
             </div>
         </div>
 
-        <div class="col-lg-12 col-md-12">
-            <div class="form-group">
-                <div class="form-check agree-label">
-                    <input name="gridCheck" value="I agree to the terms and privacy policy."
-                        class="form-check-input" type="checkbox" id="gridCheck" required>
-                    <label class="form-check-label" for="gridCheck">
-                        मैं <a href="terms-condition.html">नियम एवं शर्तें</a> और <a href="privacy-policy.html">गोपनीयता नीति</a> से सहमत हूँ।
-                    </label>
-                    <div class="help-block with-errors gridCheck-error"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-12">
-            <button type="submit" class="btn common-btn">
+        <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn btn-success px-4">
                 संदेश भेजें
             </button>
-            <div id="msgSubmit" class="h3 text-center hidden"></div>
-            <div class="clearfix"></div>
+            <div id="msgSubmit" class="h5 mt-3 text-success d-none"></div>
         </div>
     </div>
-
 </form>
+
 
 
     </div>
