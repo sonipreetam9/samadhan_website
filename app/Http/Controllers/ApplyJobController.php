@@ -141,6 +141,7 @@ class ApplyJobController extends Controller
 
         // 1. Save main candidate data
         $job = new ApplyedJobModel();
+        $job->user_id= $user_id;
         $job->vacancy_id = $request->vancancy_id; // if you have vacancy id, set it here
         $job->advertisement_no = $request->advertisement_no;
         $job->category_no = $request->category_no;
@@ -161,7 +162,7 @@ class ApplyJobController extends Controller
         $job->exp_months = $request->exp_months;
         $job->exp_days = $request->exp_days;
         $job->visible_mark = $request->visible_mark;
-      
+
         $job->place = $request->place;
         $job->form_date = $request->form_date;
 
