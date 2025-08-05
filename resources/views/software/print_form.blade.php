@@ -25,7 +25,7 @@
         opacity: 0.11;
         z-index: 0;
         background: no-repeat center;
-        background-image: url('{{ asset(' assets/img/logo.png') }}');
+        background-image: url('{{ asset('assets/img/logo.png') }}');
         pointer-events: none;
     }
 
@@ -172,7 +172,7 @@
                                         </ol>
                                     </div>
                                     <div class="col-2 d-flex flex-column align-items-end justify-content-end">
-                                        <div class="photo-box mt-1"> <img src="{{ asset($applyed_job->sign) }}"
+                                        <div class="photo-box mt-1"> <img src="{{ asset($applyed_job->passport_image) }}"
                                                 height="150"></div>
                                     </div>
                                 </div>
@@ -319,8 +319,10 @@
                                                 }}</span>
                                         </div>
                                         <div class="col-6 text-end">
-                                            Signature of Candidate<br>
+
                                             <img src="{{ asset($applyed_job->sign) }}" height="50">
+                                            <br>
+                                            Signature of Candidate
                                         </div>
                                     </div>
                                 </div>
