@@ -33,13 +33,9 @@ class AuthController extends Controller
             'email' => 'required|email',
            'password' => [
                     'required',
-                    'string',
-                    'min:6',
-                    'confirmed',
-                    'regex:/^[a-zA-Z0-9@.]+$/'
                 ],
         ], [
-            'password.regex' => 'Password can only contain letters, numbers, @, and .',
+            'password.regex' => 'Password Required.',
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
