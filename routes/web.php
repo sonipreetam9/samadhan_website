@@ -9,6 +9,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\MemberShipController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PrintFormController;
 use App\Http\Controllers\ProfileController;
@@ -50,6 +51,12 @@ Route::get('/super_admin', [SuperAuthController::class, 'login_page'])->name('su
 Route::post('/super_admin', [SuperAuthController::class, 'check_login'])->name('super.post.login');
 Route::get('/super_admin/register', [SuperAuthController::class, 'register_page'])->name('super.register');
 Route::post('/super_admin/register', [SuperAuthController::class, 'register_post'])->name('super.post.register');
+
+
+Route::get('/apply-membership', [MemberShipController::class, 'apply_member_form'])->name('membership.form');
+Route::post('/apply-membership-post', [MemberShipController::class, 'member_form_post'])->name('membership.form.post');
+
+
 
 Route::group(
     ['middleware' => 'guest'],
@@ -109,7 +116,7 @@ Route::group(
 
 
         Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
- Route::get('/contact-messages', [SCandidateController::class, 'contact_list'])->name('super.contact');
+        Route::get('/contact-messages', [SCandidateController::class, 'contact_list'])->name('super.contact');
 
         Route::get('/all-payments-list', [PaymentController::class, 'new_payment_list'])->name('super.payment.list');
         Route::get('/update-payment-status/{id}/{status}', [PaymentController::class, 'update_payment_status'])->name('super.update.payment.status');
@@ -118,10 +125,6 @@ Route::group(
 
         Route::get('/add-advertisement', [SAdvertisementController::class, 'add_advertisement'])->name('super.add.advertisement.page');
         Route::post('/add-advertisement-post', [SAdvertisementController::class, 'add_advertisement_post'])->name('super.add.advertisement.post');
-
-
-
-
     }
 );
 

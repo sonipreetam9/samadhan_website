@@ -31,9 +31,15 @@ class AuthController extends Controller
         // Validate input
         $request->validate([
             'email' => 'required|email',
-            'password' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/'],
+           'password' => [
+                    'required',
+                    'string',
+                    'min:6',
+                    'confirmed',
+                    'regex:/^[a-zA-Z0-9@.]+$/'
+                ],
         ], [
-            'password.regex' => 'Password must contain only letters and numbers.'
+            'password.regex' => 'Password can only contain letters, numbers, @, and .',
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -50,7 +56,7 @@ class AuthController extends Controller
 
         if ($user) {
             $user->remember_token = null; // Remove Remember Token
-           
+
         }
 
         Auth::logout();
