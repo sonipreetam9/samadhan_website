@@ -225,6 +225,10 @@
                                             class="nav-link">Instruction To Applicants</a></li>
                                     <li class="nav-item"><a href="{{ route('required_documents') }}"
                                             class="nav-link">Required Documents</a></li>
+                                    <li class="nav-item"><a href="{{ route('membership.form') }}"
+                                            class="nav-link">Apply Membership Form</a></li>
+                                    <li class="nav-item"><a href="{{ route('search.member.form') }}"
+                                            class="nav-link">Search Membership Application</a></li>
                                     <!-- Apply & Results -->
                                     {{-- <li class="nav-item">
                                         <a href="portal/Apply/index.php" class="nav-link">Apply Online</a>

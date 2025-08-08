@@ -225,11 +225,23 @@
                         <li class="nav-item">
                             <a class="nav-link menu-link {{ request()->routeIs('super.payment.list') ? 'active' : '' }}"
                                 href="{{ route('super.payment.list') }}">
-                                <i class="mdi mdi-view-list"></i> <span>Payment Requests</span>
+                                <i class="mdi mdi-view-list"></i> <span>Job Payments</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link {{ request()->routeIs('super.membership.payment.list') ? 'active' : '' }}"
+                                href="{{ route('super.membership.payment.list') }}">
+                                <i class="mdi mdi-view-list"></i> <span>Mambership Payments</span>
                             </a>
                         </li>
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Admin</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link {{ request()->routeIs('super.add.team') ? 'active' : '' }}"
+                                href="{{ route('super.add.team') }}">
+                                <i class="mdi mdi-account-circle-outline"></i> <span>Team</span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}"

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\StaffMemberModel;
 class IndexController extends Controller
 {
     public function index(){
@@ -56,6 +56,7 @@ class IndexController extends Controller
     }
     public function team(){
          $page_title="Our Team Members";
-        return view('team',compact('page_title'));
+         $members = StaffMemberModel::where('show_website',1)->where('status', 1)->get();
+        return view('team',compact('page_title','members'));
     }
 }

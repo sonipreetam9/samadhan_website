@@ -29,6 +29,22 @@
 
 <section class="dream-area p-2">
 
+@if(Session::has('success'))
+            <div style="padding: 10px 15px 0px 15px;">
+                <p class="alert alert-success">{{ Session::get('success') }}</p>
+            </div>
+            @endif
+
+            @if(Session::has('error'))
+            <div style="padding: 10px 15px 0px 15px;">
+                <p class="alert alert-danger">{{ Session::get('error') }}</p>
+            </div>
+            @endif
+
+
+</section>
+<section class="dream-area p-2">
+
 
     <marquee><a href="{{ asset('assets/img/07_2025_vacancy.jpg') }}" target="_blank" style="color: red">{{ $web_name }}
             Advertisement number 07/2025
@@ -229,11 +245,11 @@
                             class="btn btn-warning btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-person"></i> Apply Membership
                         </a>
-                        <a href="{{ route('login') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
+                        <a href="{{ route('membership.form') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn login-btn btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-person"></i> Membership Login
                         </a>
-                        <a href="{{ route('login') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
+                        <a href="{{ route('membership.form') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn btn-warning btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-person"></i> Apply Job
                         </a>
