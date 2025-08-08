@@ -54,7 +54,7 @@ class MemberShipPaymentController extends Controller
 
  public function new_payment_list_member_ship()
     {
-       $new_payment_list = MemberModel::where('payment_status', 'pending')
+       $new_payment_list = MemberModel::where('payment_status', 'review')
     ->whereNotNull('payment_utr')
     ->where('payment_utr', '!=', '')
     ->orderBy('id', 'DESC')

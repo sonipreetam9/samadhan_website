@@ -189,6 +189,8 @@
                 <li>जाति प्रमाण पत्र</li>
                 <li>पासपोर्ट</li>
             </ul> --}}
+
+            
         </div>
 
         <div class="declaration">

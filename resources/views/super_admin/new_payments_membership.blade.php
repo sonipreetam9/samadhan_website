@@ -46,7 +46,7 @@
 
                             <div class="col-12 col-md-6 mb-2">
                                 <p><strong>पता:</strong> {{ $list->address }}</p>
-                            
+
                                 <p><strong>शुल्क (Fees):</strong> ₹ 1100/-</p>
                                 <p><strong>शुल्क स्थिति:</strong>
                                     @if($list->payment_status == 'pending')
@@ -54,7 +54,7 @@
                                     @elseif($list->payment_status == 'completed')
                                     <span class="badge bg-success">Paid</span>
                                     @else
-                                    <span class="badge bg-secondary">Unknown</span>
+                                    <span class="badge bg-secondary">Review</span>
                                     @endif
                                 </p>
                             </div>
