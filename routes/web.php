@@ -72,9 +72,6 @@ Route::get('/pay-payment/member-form/{tag_id}', [MemberShipPaymentController::cl
 Route::post('/pay-payment-post/member-form/', [MemberShipPaymentController::class, 'pay_membership_payment_post'])->name('pay.payment.membership.post');
 
 
-
-
-
 Route::group(
     ['middleware' => 'guest'],
     function () {
@@ -100,8 +97,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/apply-job-list', [ApplyJobController::class, 'applyed_job_list'])->name('user.apply.job.list');
 
 
-
-
     Route::get('upload-documents-form/{applyed_id}/{vacancy_id}', [ApplyJobController::class, 'upload_documents_form'])->name('user.upload.documents');
     Route::post('upload-documents-form-post/{applyed_id}/{vacancy_id}', [ApplyJobController::class, 'upload_documents_post'])->name('user.upload.documents.post');
 
@@ -111,45 +106,43 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::post('make-payment-post/{applyed_id}/{vacancy_id}', [PaymentController::class, 'payment_post'])->name('make.payment.post');
 });
 
-Route::group(
-    ['prefix' => 'super_admin', 'middleware' => ['admin']],
-    function () {
 
-        Route::get('/logout', [SuperAuthController::class, 'logout'])->name('super.logout');
-        Route::get('/dashboard', [SDashboardController::class, 'dashboard'])->name('super.dashboard');
+Route::group(['prefix' => 'super_admin', 'middleware' => ['admin']], function () {
 
-        Route::get('/profile', [SProfileController::class, 'profile'])->name('super.profile');
+    Route::get('/logout', [SuperAuthController::class, 'logout'])->name('super.logout');
+    Route::get('/dashboard', [SDashboardController::class, 'dashboard'])->name('super.dashboard');
 
-        Route::get('/add-vacancy', [SVacancyController::class, 'vacancy'])->name('super.add.vacancy');
-        Route::post('/add-vacancy-post', [SVacancyController::class, 'add_vacancy'])->name('super.add.vacancy.post');
-        Route::get('/all-vacancy-list', [SVacancyController::class, 'vacancy_list'])->name('super.vacancy.list');
+    Route::get('/profile', [SProfileController::class, 'profile'])->name('super.profile');
 
-
-        Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
-        Route::get('/contact-messages', [SCandidateController::class, 'contact_list'])->name('super.contact');
-
-        Route::get('/all-payments-list', [PaymentController::class, 'new_payment_list'])->name('super.payment.list');
-        Route::get('/update-payment-status/{id}/{status}', [PaymentController::class, 'update_payment_status'])->name('super.update.payment.status');
+    Route::get('/add-vacancy', [SVacancyController::class, 'vacancy'])->name('super.add.vacancy');
+    Route::post('/add-vacancy-post', [SVacancyController::class, 'add_vacancy'])->name('super.add.vacancy.post');
+    Route::get('/all-vacancy-list', [SVacancyController::class, 'vacancy_list'])->name('super.vacancy.list');
 
 
-        Route::get('/membership-payment-list', [MemberShipPaymentController::class, 'new_payment_list_member_ship'])->name('super.membership.payment.list');
-        Route::get('/membership-update-payment-status/{id}/{status}', [MemberShipPaymentController::class, 'update_payment_status_membership'])->name('super.membership.update.payment.status');
+    Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
+    Route::get('/contact-messages', [SCandidateController::class, 'contact_list'])->name('super.contact');
+
+    Route::get('/all-payments-list', [PaymentController::class, 'new_payment_list'])->name('super.payment.list');
+    Route::get('/update-payment-status/{id}/{status}', [PaymentController::class, 'update_payment_status'])->name('super.update.payment.status');
+
+
+    Route::get('/membership-payment-list', [MemberShipPaymentController::class, 'new_payment_list_member_ship'])->name('super.membership.payment.list');
+    Route::get('/membership-update-payment-status/{id}/{status}', [MemberShipPaymentController::class, 'update_payment_status_membership'])->name('super.membership.update.payment.status');
 
 
 
-        Route::get('/add-advertisement', [SAdvertisementController::class, 'add_advertisement'])->name('super.add.advertisement.page');
-        Route::post('/add-advertisement-post', [SAdvertisementController::class, 'add_advertisement_post'])->name('super.add.advertisement.post');
+    Route::get('/add-advertisement', [SAdvertisementController::class, 'add_advertisement'])->name('super.add.advertisement.page');
+    Route::post('/add-advertisement-post', [SAdvertisementController::class, 'add_advertisement_post'])->name('super.add.advertisement.post');
 
 
-        Route::get('/add-team-member', [StaffMemberController::class, 'add_team_member'])->name('super.add.team');
-        Route::post('/add-team-member-post', [StaffMemberController::class, 'add_team_member_post'])->name('super.add.team.post');
+    Route::get('/add-team-member', [StaffMemberController::class, 'add_team_member'])->name('super.add.team');
+    Route::post('/add-team-member-post', [StaffMemberController::class, 'add_team_member_post'])->name('super.add.team.post');
 
 
-        Route::get('/team/toggle-status/{id}', [StaffMemberController::class, 'toggleStatus'])->name('super.toggle.status');
-        Route::get('/team/toggle-website/{id}', [StaffMemberController::class, 'toggleWebsite'])->name('super.toggle.website');
-        Route::get('/team/edit/{id}', [StaffMemberController::class, 'editTeam'])->name('super.edit.team');
-    }
-);
+    Route::get('/team/toggle-status/{id}', [StaffMemberController::class, 'toggleStatus'])->name('super.toggle.status');
+    Route::get('/team/toggle-website/{id}', [StaffMemberController::class, 'toggleWebsite'])->name('super.toggle.website');
+    Route::get('/team/edit/{id}', [StaffMemberController::class, 'editTeam'])->name('super.edit.team');
+});
 
 
 

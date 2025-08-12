@@ -167,6 +167,142 @@
 <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 
+<script>
+(function(){
+  'use strict';
+
+  const showConsole = true; // true => console में नोटिस दिखेगा, false => silent
+
+  function log(msg){
+    if(showConsole) console.warn('AntiCapture:', msg);
+  }
+
+  // 1) राइट-क्लिक, टेक्स्ट सेलेक्ट और कॉपी/कट ब्लॉक
+  document.addEventListener('contextmenu', function(e){
+    e.preventDefault();
+    log('Context menu blocked');
+  }, true);
+
+  document.addEventListener('selectstart', function(e){
+    e.preventDefault();
+    log('Text select blocked');
+  }, true);
+
+  document.addEventListener('copy', function(e){
+    e.preventDefault();
+    log('Copy blocked');
+  }, true);
+
+  document.addEventListener('cut', function(e){
+    e.preventDefault();
+    log('Cut blocked');
+  }, true);
+
+  // 2) सामान्य कीबोर्ड शॉर्टकट्स ब्लॉक (F12, PrintScreen, Ctrl/Cmd combinations)
+  document.addEventListener('keydown', function(e){
+    // key normalization
+    const k = e.key ? e.key.toLowerCase() : '';
+    const kc = e.keyCode || 0;
+
+    // conditions to block
+    const isF12 = kc === 123;
+    const isPrintScreen = kc === 44 || k === 'printscreen' || k === 'print';
+    const isCtrlShiftI = (e.ctrlKey || e.metaKey) && e.shiftKey && (k === 'i');
+    const isCtrlShiftJ = (e.ctrlKey || e.metaKey) && e.shiftKey && (k === 'j');
+    const isCtrlU = (e.ctrlKey || e.metaKey) && k === 'u';
+    const isCtrlS = (e.ctrlKey || e.metaKey) && k === 's';
+    const isCtrlP = (e.ctrlKey || e.metaKey) && k === 'p';
+    const isCtrlShiftC = (e.ctrlKey || e.metaKey) && e.shiftKey && (k === 'c');
+
+    if (isF12 || isPrintScreen || isCtrlShiftI || isCtrlShiftJ || isCtrlU || isCtrlS || isCtrlP || isCtrlShiftC) {
+      e.preventDefault();
+      e.stopPropagation();
+      log('Blocked keyboard shortcut: keyCode=' + kc + ', key=' + k);
+      return false;
+    }
+  }, true);
+
+  // 3) PrintScreen detection attempt (keyup) -> try clear clipboard image (best-effort)
+  async function tryClearClipboardImage(){
+    try {
+      if (!navigator.clipboard || !navigator.clipboard.read) return;
+      const items = await navigator.clipboard.read();
+      for (const item of items) {
+        if (!item.types) continue;
+        if (item.types.some(t => t.startsWith('image/'))) {
+          // try overwrite with text (may fail without permission)
+          await navigator.clipboard.writeText('Screenshot blocked by site').catch(()=>{});
+          log('Attempted to clear image from clipboard (permission-limited).');
+          break;
+        }
+      }
+    } catch (err) {
+      // browsers often block read/write; ignore
+      log('Clipboard clear attempt failed or not permitted.');
+    }
+  }
+
+  window.addEventListener('keyup', function(e){
+    const kc = e.keyCode || 0;
+    const k = e.key ? e.key.toLowerCase() : '';
+    if (kc === 44 || k === 'printscreen' || k === 'print') {
+      tryClearClipboardImage();
+      log('PrintScreen key detected (browser-level).');
+    }
+  });
+
+  // 4) Visibility change -> blur content when tab not active (deterrent)
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) {
+      document.documentElement.style.filter = 'blur(6px)'; // soft blur
+      log('Tab hidden: content blurred');
+    } else {
+      document.documentElement.style.filter = '';
+      log('Tab visible: blur removed');
+    }
+  });
+
+  // 5) Mobile: long-press / multi-touch block (best-effort)
+  let touchStartTime = 0;
+  document.addEventListener('touchstart', function(e){
+    touchStartTime = Date.now();
+    if (e.touches && e.touches.length > 1) {
+      e.preventDefault();
+      log('Multi-touch blocked');
+    }
+  }, { passive: false });
+
+  document.addEventListener('touchend', function(e){
+    const dt = Date.now() - touchStartTime;
+    if (dt > 700) { // long press threshold
+      e.preventDefault();
+      log('Long press blocked');
+    }
+  }, { passive: false });
+
+  // 6) Prevent common "save as" via drag/drop of images (optional)
+  document.addEventListener('dragstart', function(e){
+    e.preventDefault();
+  }, true);
+
+  // 7) OPTIONAL: prevent frame embedding (clickjacking mitigation)
+  try {
+    if (window.top !== window.self) {
+      window.top.location = window.self.location;
+    }
+  } catch (err) {
+    // ignore cross-origin
+  }
+
+  // small helper to disable selection via CSS fallback (in case JS disabled some parts)
+  const css = '*{ -webkit-user-select:none !important; -moz-user-select:none !important; -ms-user-select:none !important; user-select:none !important; }';
+  const style = document.createElement('style');
+  style.appendChild(document.createTextNode(css));
+  document.head.appendChild(style);
+
+  log('Anti-capture script initialized');
+})();
+</script>
 
 </body>
 

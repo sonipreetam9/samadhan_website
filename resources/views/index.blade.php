@@ -210,7 +210,7 @@
                         <h3>To avail SGWESLTD. any scheme or service, Please visit</h3>
                         your nearest CSC Center
                         <br><br>
-                        <a href="assets/form.pdf" target="_blank">
+                        <a href="{{ asset('assets/membership_form.pdf') }}" target="_blank">
                             <img src="assets/img/form_download.png">
                         </a>
                         <br>
@@ -224,7 +224,7 @@
                     </div>
 
                     <div class="bootstrap-web text-center">
-                        <a href="#" target="_blank">
+                        <a href="{{ route('membership.form') }}" target="_blank">
                             <img class="rounded mx-auto d-block mt-3" src="assets/img/job.gif" alt="Job">
                         </a>
                     </div>
@@ -241,7 +241,7 @@
                         <h6 class="text-center text-danger font-weight-bold">E-Services Online</h6>
                     </div>
                     <div style="display: flex;flex-direction: column;">
-                        <a href="#" style="background-color:#ffd8b1; border-color:#ffd8b1;"
+                        <a href="{{ route('membership.form') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn btn-warning btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-person"></i> Apply Membership
                         </a>
@@ -321,29 +321,29 @@
             <div class="col-lg-6">
                 <div class="work-content">
                     <div class="section-title">
-                        <span class="sub-title">How we work</span>
-                        <h2>We exist for non-profits, social enterprises, community groups</h2>
+                        <span class="sub-title">हमारा कार्य</span>
+                        <h2>हम ग्रामीण क्षेत्रों में कल्याणकारी योजनाएं और सेवाएं प्रदान करने के लिए प्रतिबद्ध हैं</h2>
                     </div>
                     <ul>
                         <li>
-                            <h3><span>01</span>Raise money from different sources</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, pariatur esse
-                                animi temporibus iusto at dolorum</p>
+                            <h3><span>01</span>कल्याणकारी योजनाओं का लाभ</h3>
+                            <p>हमारी स्कीम का लाभ 18-40 वर्ष आयु के ऐसे व्यक्ति ले सकते हैं जिनके पास 2 एकड़ या उससे कम जमीन है, चाहे वे किसी भी जाति के हों।</p>
                         </li>
                         <li>
-                            <h3><span>02</span>Giving relief in rural area all over the world</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, pariatur esse
-                                animi temporibus iusto at dolorum</p>
+                            <h3><span>02</span>आजीवन सदस्यता और विशेष सुविधाएं</h3>
+                            <p>आजीवन सदस्यता शुल्क ₹1100 है। सदस्य को कन्यादान योजना, वृद्धावस्था पेंशन, दुर्घटना एवं मृत्यु दावा सहित सभी योजनाओं का लाभ मिलता है।</p>
                         </li>
                         <li>
-                            <h3><span>03</span>Gather all the money and giving relief in need</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, pariatur esse
-                                animi temporibus iusto at dolorum</p>
+                            <h3><span>03</span>रोजगार और कौशल विकास</h3>
+                            <p>ग्रामीण बेरोजगार युवक-युवतियों को पंजीकरण के 5 वर्ष बाद रोजगार के अवसर, सिलाई मशीन योजना एवं अन्य कौशल विकास कार्यक्रम प्रदान किए जाते हैं।</p>
                         </li>
                         <li>
-                            <h3><span>04</span>Go to the country that really needs help</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, pariatur esse
-                                animi temporibus iusto at dolorum</p>
+                            <h3><span>04</span>सांस्कृतिक एवं सामाजिक गतिविधियां</h3>
+                            <p>हम स्कूलों में सांस्कृतिक कार्यक्रम आयोजित करते हैं, खेल-कूद और महिला सशक्तिकरण से जुड़े अभियान चलाते हैं, ताकि समाज में जागरूकता फैलाई जा सके।</p>
+                        </li>
+                        <li>
+                            <h3><span>05</span>वृद्धावस्था एवं सुरक्षा योजनाएं</h3>
+                            <p>60 वर्ष की आयु के बाद पंजीकृत सदस्य को ₹1500 मासिक वृद्धावस्था पेंशन और दुर्घटना/मृत्यु पर आर्थिक सहायता प्रदान की जाती है।</p>
                         </li>
                     </ul>
                 </div>
@@ -359,6 +359,7 @@
         </div>
     </div>
 </section>
+
 <!-- End Work -->
 
 <!-- Benefit -->
@@ -369,42 +370,39 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="benefit-item">
                     <i class="flaticon-house"></i>
-                    <h3>Build home</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi ab quam
-                        magnam earum</p>
+                    <h3>आवास सहायता</h3>
+                    <p>ग्रामीण क्षेत्रों के जरूरतमंद परिवारों को आवास निर्माण व मरम्मत के लिए सहायता प्रदान करना।</p>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-3">
                 <div class="benefit-item two">
                     <i class="flaticon-hospital"></i>
-                    <h3>Medical facilities</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi ab quam
-                        magnam earum</p>
+                    <h3>चिकित्सा सुविधाएं</h3>
+                    <p>सदस्यों और उनके परिवार को स्वास्थ्य सेवाओं और आकस्मिक चिकित्सा सहायता का लाभ उपलब्ध कराना।</p>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-3">
                 <div class="benefit-item three">
                     <i class="flaticon-fast-food"></i>
-                    <h3>Food & water</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi ab quam
-                        magnam earum</p>
+                    <h3>भोजन एवं पेयजल</h3>
+                    <p>जरूरतमंदों को स्वच्छ पेयजल और पौष्टिक भोजन उपलब्ध कराना, विशेष रूप से ग्रामीण क्षेत्रों में।</p>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-3">
                 <div class="benefit-item four">
                     <i class="flaticon-graduation-cap"></i>
-                    <h3>Education facilities</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi ab quam
-                        magnam earum</p>
+                    <h3>शिक्षा सुविधाएं</h3>
+                    <p>गरीब परिवारों के बच्चों को शिक्षा, छात्रवृत्ति और सांस्कृतिक गतिविधियों में अवसर प्रदान करना।</p>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
+
 <!-- End Benefit -->
 
 
