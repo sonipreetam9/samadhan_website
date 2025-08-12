@@ -249,7 +249,7 @@
                             class="btn login-btn btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-person"></i> Membership Login
                         </a>
-                        <a href="{{ route('membership.form') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
+                        <a href="{{ route('login') }}" style="background-color:#ffd8b1; border-color:#ffd8b1;"
                             class="btn btn-warning btn-block btn-flat p-2 mt-3 text-left">
                             <i class="bi bi-person"></i> Apply Job
                         </a>
