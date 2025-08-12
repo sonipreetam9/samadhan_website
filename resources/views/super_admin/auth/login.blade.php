@@ -139,8 +139,9 @@
                             <p class="mb-0">&copy;
                                 <script>
                                     document.write(new Date().getFullYear())
-                                </script> {{ $web_name }}. Crafted with <i class="mdi mdi-heart text-danger"></i> by
-                                Techgeometry Pvt Ltd.
+                                </script> {{ $web_name }}.
+                                 {{-- Crafted with <i class="mdi mdi-heart text-danger"></i> by
+                                Techgeometry Pvt Ltd. --}}
                             </p>
                         </div>
                     </div>
