@@ -13,6 +13,13 @@ class SAdvertisementController extends Controller
         $ads=AdvertisementModel::orderBy('id','DESC')->get();
         return view('super_admin.add_advertisement',compact('ads'));
     }
+    public function advertisement_delete($id)
+    {
+        $ads=AdvertisementModel::findOrFail($id);;
+        $ads->delete();
+
+    return redirect()->back()->with('success', 'Advertisement deleted successfully.');
+    }
    public function add_advertisement_post(Request $request)
 {
     $request->validate([

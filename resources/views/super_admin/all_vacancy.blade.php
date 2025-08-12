@@ -24,11 +24,20 @@
                     <div class="card-header bg-primary ">
                         <h5 class="card-title mb-0 text-white">All Vacancy List</h5>
                     </div>
+                    @if (session('success'))
+                    <div class="p-4">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    @endif
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="myTable"
                                 class="table table-bordered table-hover table-striped align-middle w-100">
-                               <thead class="table-dark">
+                                <thead class="table-dark">
                                     <tr>
                                         <th>Sr_No</th>
                                         <th>Advt_No.</th>
@@ -71,7 +80,7 @@
                                         <td>
                                             <a href="{{ asset('uploads/'.$vacancy->file) }}"
                                                 class="btn btn-sm btn-success">View</a>
-                                            <a href="{{ url('vacancy/delete/'.$vacancy->id) }}"
+                                            <a href="{{ route('super.vacancy.delete',['id'=>$vacancy->id]) }}"
                                                 class="btn btn-sm btn-danger"
                                                 onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>

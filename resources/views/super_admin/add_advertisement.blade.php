@@ -75,6 +75,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                           
                             <table id="myTable"
                                 class="table table-bordered table-hover table-striped align-middle w-100">
                                 <thead class="table-dark">
@@ -93,7 +94,7 @@
                                         <td>{{ \Carbon\Carbon::parse($ad->created_at)->format('d-m-Y') }}</td>
                                         <td>
                                             <a href="" class="btn btn-sm btn-success">View</a>
-                                            <a href="" class="btn btn-sm btn-danger"
+                                            <a href="{{ route('super.delete.advertisement',['id'=>$ad->id]) }}" class="btn btn-sm btn-danger"
                                                 onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>

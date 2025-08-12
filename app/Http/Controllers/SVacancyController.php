@@ -78,4 +78,12 @@ class SVacancyController extends Controller
 
         return view('super_admin.all_vacancy', compact('vacancies'));
     }
+   public function vacancy_delete($id)
+{
+    $vacancy = VacancyModel::findOrFail($id);
+    $vacancy->delete();
+
+    return redirect()->back()->with('success', 'Vacancy deleted successfully.');
+}
+
 }

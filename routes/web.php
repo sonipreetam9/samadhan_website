@@ -72,15 +72,12 @@ Route::get('/pay-payment/member-form/{tag_id}', [MemberShipPaymentController::cl
 Route::post('/pay-payment-post/member-form/', [MemberShipPaymentController::class, 'pay_membership_payment_post'])->name('pay.payment.membership.post');
 
 
-Route::group(
-    ['middleware' => 'guest'],
-    function () {
+Route::group(['middleware' => 'guest'],function () {
         Route::get('/login', [AuthController::class, 'login_page'])->name('login');
         Route::post('/login', [AuthController::class, 'check_login'])->name('post.login');
         Route::get('/register', [AuthController::class, 'register_page'])->name('register');
         Route::post('/register', [AuthController::class, 'register_post'])->name('post.register');
-    }
-);
+});
 
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
@@ -117,6 +114,7 @@ Route::group(['prefix' => 'super_admin', 'middleware' => ['admin']], function ()
     Route::get('/add-vacancy', [SVacancyController::class, 'vacancy'])->name('super.add.vacancy');
     Route::post('/add-vacancy-post', [SVacancyController::class, 'add_vacancy'])->name('super.add.vacancy.post');
     Route::get('/all-vacancy-list', [SVacancyController::class, 'vacancy_list'])->name('super.vacancy.list');
+    Route::get('/vacancy-delete/{id}', [SVacancyController::class, 'vacancy_delete'])->name('super.vacancy.delete');
 
 
     Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
@@ -133,6 +131,7 @@ Route::group(['prefix' => 'super_admin', 'middleware' => ['admin']], function ()
 
     Route::get('/add-advertisement', [SAdvertisementController::class, 'add_advertisement'])->name('super.add.advertisement.page');
     Route::post('/add-advertisement-post', [SAdvertisementController::class, 'add_advertisement_post'])->name('super.add.advertisement.post');
+    Route::get('/delete-advertisement/{id}', [SAdvertisementController::class, 'advertisement_delete'])->name('super.delete.advertisement');
 
 
     Route::get('/add-team-member', [StaffMemberController::class, 'add_team_member'])->name('super.add.team');
@@ -142,6 +141,7 @@ Route::group(['prefix' => 'super_admin', 'middleware' => ['admin']], function ()
     Route::get('/team/toggle-status/{id}', [StaffMemberController::class, 'toggleStatus'])->name('super.toggle.status');
     Route::get('/team/toggle-website/{id}', [StaffMemberController::class, 'toggleWebsite'])->name('super.toggle.website');
     Route::get('/team/edit/{id}', [StaffMemberController::class, 'editTeam'])->name('super.edit.team');
+
 });
 
 

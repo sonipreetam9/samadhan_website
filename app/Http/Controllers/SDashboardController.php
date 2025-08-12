@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\AdvertisementModel;
+use App\Models\MemberModel;
+use App\Models\VacancyModel;
 
 class SDashboardController extends Controller
 {
@@ -12,6 +16,10 @@ class SDashboardController extends Controller
     {
         $hour = Carbon::now()->format('H');
         $greeting = 'Hello';
+        $user_count = User::count();
+        $vancany_count = VacancyModel::count();
+        $member_count = MemberModel::count();
+        $add_count = AdvertisementModel::count();
 
         if ($hour >= 5 && $hour < 12) {
             $greeting = 'Good Morning';
@@ -22,6 +30,13 @@ class SDashboardController extends Controller
         } else {
             $greeting = 'Good Night';
         }
-        return view('super_admin.index',compact('greeting'));
+
+        return view('super_admin.index', compact(
+            'greeting',
+            'user_count',
+            'vancany_count',
+            'member_count',
+            'add_count'
+        ));
     }
 }
