@@ -118,6 +118,11 @@ Route::group(['prefix' => 'super_admin', 'middleware' => ['admin']], function ()
 
 
     Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');
+    Route::get('/view-candidate/{id}', [SCandidateController::class, 'view_candidate'])->name('super.view.candidate');
+    Route::get('/view-candidate-job/{jobId}', [SCandidateController::class, 'view_candidate_appyled_job'])->name('super.view.candidate.job');
+
+
+
     Route::get('/contact-messages', [SCandidateController::class, 'contact_list'])->name('super.contact');
 
     Route::get('/all-payments-list', [PaymentController::class, 'new_payment_list'])->name('super.payment.list');

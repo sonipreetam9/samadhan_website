@@ -37,7 +37,7 @@
                                         {{-- <th>Address</th> --}}
                                         <th>Password</th>
                                         <th>Status</th>
-                                        {{-- <th>Action</th> --}}
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,12 +66,11 @@
                                             @endif
                                         </td>
 
-                                        {{-- <td>
-                                            <a href="{{ url('user/view/'.$user->id) }}"
-                                                class="btn btn-sm btn-success">View</a>
-                                            <a href="{{ url('user/delete/'.$user->id) }}" class="btn btn-sm btn-danger"
-                                                onclick="return confirm('Are you sure?')">Delete</a>
-                                        </td> --}}
+                                        <td>
+                                            <a href="{{ route('super.view.candidate',$user->id) }}"
+                                                class="btn btn-sm btn-primary">View</a>
+
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

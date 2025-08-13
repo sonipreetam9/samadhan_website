@@ -71,8 +71,7 @@ class PaymentController extends Controller
     public function new_payment_list()
     {
        $new_payment_list = ApplyedJobModel::where('payment_status', 'pending')
-    ->whereNotNull('payment_utr')
-    ->where('payment_utr', '!=', '')
+   
     ->orderBy('id', 'DESC')
     ->get();
 
