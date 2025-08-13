@@ -34,10 +34,10 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Address</th>
+                                        {{-- <th>Address</th> --}}
                                         <th>Password</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        {{-- <th>Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +47,7 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->address }}</td>
+                                        {{-- <td>{{ $user->address }}</td> --}}
 
                                         {{-- Decode base64 password from in_hash --}}
                                         <td>
@@ -66,12 +66,12 @@
                                             @endif
                                         </td>
 
-                                        <td>
+                                        {{-- <td>
                                             <a href="{{ url('user/view/'.$user->id) }}"
                                                 class="btn btn-sm btn-success">View</a>
                                             <a href="{{ url('user/delete/'.$user->id) }}" class="btn btn-sm btn-danger"
                                                 onclick="return confirm('Are you sure?')">Delete</a>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -124,26 +124,18 @@
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <img class="rounded-circle header-profile-user"
-                                        src="{{ asset('software/assets/images/users/avatar-1.jpg') }}"
-                                        alt="Header Avatar">
+                                        src="{{ asset($small_logo) }}"
+                                        alt="Header Avatar" style="object-fit: contain;">
                                     <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{
-                                            Auth::guard('admin')->user()->email }}</span>
-                                        <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Super Admin
+                                            </span>
                                     </span>
                                 </span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <h6 class="dropdown-header">Welcome {{ Auth::guard('admin')->user()->email }} !</h6>
-                                <a class="dropdown-item" href="pages-profile.html"><i
-                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Profile</span></a>
+                                <h6 class="dropdown-header">Welcome Super Admin</h6>
 
-                                <a class="dropdown-item" href="pages-profile-settings.html"><span
-                                        class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
-                                        class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Settings</span></a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"><i
                                         class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
@@ -251,12 +243,12 @@
                                 <i class="mdi mdi-account-circle-outline"></i> <span>Team</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link menu-link {{ request()->routeIs('profile') ? 'active' : '' }}"
                                 href="{{ route('profile') }}">
                                 <i class="mdi mdi-account-circle-outline"></i> <span>Profile</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link menu-link {{ request()->routeIs('super.contact') ? 'active' : '' }}"
                                 href="{{ route('super.contact') }}">
