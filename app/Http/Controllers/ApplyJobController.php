@@ -287,25 +287,25 @@ if ($allUploaded) {
 
         // Validation rules
         $rules = [
-            'aadhar_card_front' => 'required|mimes:jpg,jpeg,png,webp',
-            'aadhar_card_back'  => 'required|mimes:jpg,jpeg,png,webp',
-            'pan_card'          => 'required|mimes:jpg,jpeg,png,webp',
-            'caste'             => 'required|mimes:jpg,jpeg,png,webp',
+            'aadhar_card_front' => 'required|mimes:jpg,jpeg,png,webp,pdf',
+            'aadhar_card_back'  => 'required|mimes:jpg,jpeg,png,webp,pdf',
+            'pan_card'          => 'required|mimes:jpg,jpeg,png,webp,pdf',
+            'caste'             => 'nullable|mimes:jpg,jpeg,png,webp,pdf',
             'passport_image'    => 'required|mimes:jpg,jpeg,png,webp',
             'sign'              => 'required|mimes:jpg,jpeg,png,webp',
-            'eligibility_1'     => 'nullable|mimes:jpg,jpeg,png,webp',
-            'eligibility_2'     => 'nullable|mimes:jpg,jpeg,png,webp',
+            'eligibility_1'     => 'nullable|mimes:jpg,jpeg,png,webp,pdf',
+            'eligibility_2'     => 'nullable|mimes:jpg,jpeg,png,webp,pdf',
         ];
 
         // Conditional validation for domicial
         if ($applyed_job->domicial_yes_no == "Yes") {
-            $rules['domicial'] = 'required|mimes:jpg,jpeg,png,webp';
+            $rules['domicial'] = 'required|mimes:jpg,jpeg,png,webp,pdf';
         } else {
-            $rules['domicial'] = 'nullable|mimes:jpg,jpeg,png,webp';
+            $rules['domicial'] = 'nullable|mimes:jpg,jpeg,png,webp,pdf';
         }
 
         $messages = [
-            'mimes' => 'Invalid file type! Only JPG, JPEG, PNG, WEBP files are allowed.',
+            'mimes' => 'Invalid file type! Only JPG, JPEG, PNG, WEBP ,PDF files are allowed.',
             'required' => 'This document is required.',
         ];
 

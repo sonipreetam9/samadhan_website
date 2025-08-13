@@ -39,7 +39,7 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label>Possport Size Image</label>
+                        <label>Passport Size Image</label>
                         <input type="file" name="image" class="form-control file-input" value="{{ old('image') }}"
                             required accept=".jpg,.jpeg,.png">
                         <img class="img-preview d-none mt-2 border"
@@ -75,7 +75,7 @@
                             <div class="col-md-6 mb-3">
                                 <label>{{ $label }} Upload</label>
                                 <input type="file" name="docs[{{ $field }}]" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp">
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf">
                                 <img class="img-preview d-none mt-2 border"
                                     style="width: 100%; height: 120px; object-fit: contain;" />
                                 @error("docs.$field") <small class="text-danger">{{ $message }}</small> @enderror
@@ -129,10 +129,10 @@
     $('.file-input').on('change', function () {
         let fileInput = $(this);
         let file = this.files[0];
-        let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.webp)$/i;
+        let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.webp|\.pdf)$/i;
 
         if (!allowedExtensions.exec(file.name)) {
-            alert('Invalid file type! Only JPG, JPEG, PNG, WEBP allowed.');
+            alert('Invalid file type! Only JPG, JPEG, PNG, WEBP ,PDF allowed.');
             fileInput.val('');
             fileInput.closest('div').find('.img-preview').attr('src', '#').addClass('d-none');
             return;

@@ -38,7 +38,7 @@
                             <div class="col-12 col-md-3">
                                 <label>Aadhar Card Front</label>
                                 <input type="file" name="aadhar_card_front" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp" required>
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf" required>
                                 <img id="preview_aadhar_card_front" class="img-fluid mt-1 d-none border rounded" />
                                 @error('aadhar_card_front')
                                 <small class="text-danger">{{ $message }}</small>
@@ -49,7 +49,7 @@
                             <div class="col-12 col-md-3">
                                 <label>Aadhar Card Back</label>
                                 <input type="file" name="aadhar_card_back" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp" required>
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf" required>
                                 <img id="preview_aadhar_card_back" class="img-fluid mt-1 d-none border rounded" />
                                 @error('aadhar_card_back')
                                 <small class="text-danger">{{ $message }}</small>
@@ -60,7 +60,7 @@
                             <div class="col-12 col-md-3">
                                 <label>PAN Card</label>
                                 <input type="file" name="pan_card" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp" required>
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf" required>
                                 <img id="preview_pan_card" class="img-fluid mt-1 d-none border rounded" />
                                 @error('pan_card')
                                 <small class="text-danger">{{ $message }}</small>
@@ -68,15 +68,18 @@
                             </div>
 
                             {{-- Caste Certificate --}}
+                            @if($applyed_job->category != "GEN")
                             <div class="col-12 col-md-3">
                                 <label>Caste Certificate</label>
                                 <input type="file" name="caste" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp" required>
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf" required>
                                 <img id="preview_caste" class="img-fluid mt-1 d-none border rounded" />
                                 @error('caste')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
+                            @endif
+
 
                             {{-- Passport Size Photo --}}
                             <div class="col-12 col-md-3">
@@ -94,7 +97,7 @@
                             <div class="col-12 col-md-3">
                                 <label>Domicile Certificate</label>
                                 <input type="file" name="domicial" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp" required>
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf" required>
                                 <img id="preview_domicial" class="img-fluid mt-1 d-none border rounded" />
                                 @error('domicial')
                                 <small class="text-danger">{{ $message }}</small>
@@ -104,9 +107,9 @@
                             @endif
                             {{-- Eligibility Document 1 --}}
                             <div class="col-12 col-md-3">
-                                <label>Eligibility Document 1</label>
+                                <label>Other 1 (Optional)</label>
                                 <input type="file" name="eligibility_1" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp">
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf">
                                 <img id="preview_eligibility_1" class="img-fluid mt-1 d-none border rounded" />
                                 @error('eligibility_1')
                                 <small class="text-danger">{{ $message }}</small>
@@ -115,9 +118,9 @@
 
                             {{-- Eligibility Document 2 --}}
                             <div class="col-12 col-md-3">
-                                <label>Eligibility Document 2</label>
+                                <label>Other 2 (Optional)</label>
                                 <input type="file" name="eligibility_2" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp">
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf">
                                 <img id="preview_eligibility_2" class="img-fluid mt-1 d-none border rounded" />
                                 @error('eligibility_2')
                                 <small class="text-danger">{{ $message }}</small>
@@ -139,7 +142,7 @@
                             <div class="col-12 col-md-3">
                                 <label>{{ $doc->education_name }} (File)</label>
                                 <input type="file" name="education_docs[{{ $doc->id }}]" class="form-control file-input"
-                                    accept=".jpg,.jpeg,.png,.webp" required>
+                                    accept=".jpg,.jpeg,.png,.webp,.pdf" required>
                                 <img id="preview_{{ $doc->id }}" class="img-fluid mt-1 d-none border rounded" />
                                 @error("education_docs.{$doc->id}")
                                 <small class="text-danger">{{ $message }}</small>
@@ -168,12 +171,12 @@
         $('.file-input').on('change', function () {
             let fileInput = $(this);
             let file = this.files[0];
-            let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.webp)$/i;
+            let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.webp|\.pdf)$/i;
             let filePath = fileInput.val();
 
             // File type check
             if (!allowedExtensions.exec(filePath)) {
-                alert('Invalid file type! Only JPG, JPEG, PNG, WEBP files are allowed.');
+                alert('Invalid file type! Only JPG, JPEG, PNG, WEBP ,PDF files are allowed.');
                 fileInput.val('');
                 fileInput.closest('div').find('img').addClass('d-none').attr('src', '#');
                 return false;

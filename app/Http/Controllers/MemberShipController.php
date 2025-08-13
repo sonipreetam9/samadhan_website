@@ -111,7 +111,7 @@ class MemberShipController extends Controller
 
                 'date' => now(),
                 'place' => $request->place,
-                
+
                 'dob' => $request->dob,
             ]);
             $phone = $request->contact;
@@ -175,7 +175,7 @@ class MemberShipController extends Controller
             'tag_id' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'sign' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
-            'docs.*' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
+            'docs.*' => 'nullable|mimes:jpg,jpeg,png,webp,pdf|max:2048',
         ]);
 
         $application = MemberModel::where('tag_id', $request->tag_id)->first();

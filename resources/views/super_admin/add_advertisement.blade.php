@@ -75,13 +75,13 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                           
+
                             <table id="myTable"
                                 class="table table-bordered table-hover table-striped align-middle w-100">
                                 <thead class="table-dark">
                                     <tr>
                                         <th>#</th>
-                                        <th>Advertisement_Number</th>
+                                        <th>Advertisement Number</th>
                                         <th>Date</th>
                                         <th>Action</th>
                                     </tr>

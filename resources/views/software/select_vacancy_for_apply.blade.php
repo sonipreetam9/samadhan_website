@@ -42,12 +42,12 @@
                                 class="table table-bordered table-hover table-striped align-middle w-100">
                                 <thead class="table-dark">
                                     <tr>
-                                        <th>Sr_No</th>
-                                        <th>Advt_No.</th>
+                                        <th>Sr No</th>
+                                        <th>Advt No.</th>
                                         <th>Post</th>
-                                        <th>Pay_Scale</th>
+                                        <th>Pay Scale</th>
                                         <th>Age</th>
-                                        <th>Total_Post</th>
+                                        <th>Total Post</th>
                                         <th>Qualification</th>
                                         <th>Category</th>
                                         <th>Fee (GEN)</th>
@@ -57,7 +57,9 @@
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
+                                    
                                 </thead>
+
                                 <tbody>
                                     @foreach ($vacancies as $index => $vacancy)
                                     <tr>

@@ -42,7 +42,15 @@
     <!-- Custom Css-->
     <link href="{{ asset('software/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
 
+<style>
+        td {
+            text-align: center;
+        }
 
+        th {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
