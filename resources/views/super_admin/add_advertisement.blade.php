@@ -80,7 +80,7 @@
                                 class="table table-bordered table-hover table-striped align-middle w-100">
                                 <thead class="table-dark">
                                     <tr>
-                                        <th>#</th>
+                                        <th>Sr No.</th>
                                         <th>Advertisement Number</th>
                                         <th>Date</th>
                                         <th>Action</th>

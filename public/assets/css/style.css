@@ -2050,9 +2050,9 @@ ul {
 }
 
 /*----- About CSS -----*/
-.title-bg-one {
+/* .title-bg-one {
   background-image: url("../img/banner/title-bg1.jpg");
-}
+} */
 
 .title-bg-two {
   background-image: url("../img/banner/title-bg2.jpg");
@@ -2107,7 +2107,7 @@ ul {
 }
 
 .page-title-area {
-  height: 450px;
+  height: 310px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -2120,8 +2120,8 @@ ul {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #302c51;
-  opacity: 0.75;
+  background-color: rgb(255, 96, 21);
+  opacity: 0.60;
 }
 .page-title-area .title-item {
   position: relative;
