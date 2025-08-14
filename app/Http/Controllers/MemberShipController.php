@@ -14,7 +14,7 @@ class MemberShipController extends Controller
 {
     public function apply_member_form()
     {
-        $members = StaffMemberModel::where('show_website', 1)->where('status', 1)->get();
+        $members = StaffMemberModel::where('status', 1)->get();
         $page_title = "Apply Membership Form";
         return view('membership_form', compact('page_title', 'members'));
     }

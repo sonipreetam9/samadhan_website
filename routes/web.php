@@ -15,12 +15,12 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PrintFormController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SDashboardController;
-use App\Http\Controllers\SAuthController;
 use App\Http\Controllers\SProfileController;
 use App\Http\Controllers\SAdvertisementController;
 use App\Http\Controllers\StaffMemberController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\SuperAuthController;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -162,3 +162,8 @@ Route::get('/optimize', function () {
 
     return 'Project optimized successfully!';
 });
+
+
+
+
+Route::get('/send-mail', [MailController::class, 'sendMail']);

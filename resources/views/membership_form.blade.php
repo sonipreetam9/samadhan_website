@@ -42,7 +42,7 @@
                         <option>चुनें</option>
                         @foreach ($members as $mem)
                         <option value="{{ $mem->tag_id }}" {{ old('refer_number')==$mem->tag_id ? 'selected' : '' }}>{{
-                            $mem->tag_id }}</option>
+                            $mem->tag_id ." ". $mem->name }}</option>
                         @endforeach
                     </select>
                     @error('gender') <small class="text-danger">{{ $message }}</small> @enderror
