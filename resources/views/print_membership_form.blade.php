@@ -11,24 +11,26 @@
         color: #000;
     }
 
-   .page {
-    position: relative;   /* Important */
-    min-height: 1000px;
-    padding: 20px;
-}
+    .page {
+        position: relative;
+        /* Important */
+        min-height: 1000px;
+        padding: 20px;
+    }
 
-.watermark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('{{ asset('assets/img/logo.png') }}') no-repeat center;
+    .watermark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('{{ asset(' assets/img/logo.png') }}') no-repeat center;
 
-    opacity: 0.09;
-    z-index: -1;   /* Content ke neeche rahe */
-    pointer-events: none;
-}
+        opacity: 0.09;
+        z-index: -1;
+        /* Content ke neeche rahe */
+        pointer-events: none;
+    }
 
 
     .header {
@@ -215,13 +217,26 @@
         <!-- PAGE 2 -->
         <div class="container page page-break">
             <div class="watermark"></div>
-<div class="declaration">
-                <p>मैं प्रमाणित करता/करती हूं कि उपर्युक्त विवरण सही है...</p>
-                <p>स्थान: {{ $application->place }} <br>
-                    दिनांक: {{ date('d-m-Y', strtotime($application->date)) }} <br>
-                    हस्ताक्षर: <img src="{{ asset($application->sign) }}" width="80">
-                </p>
-            </div>
+     <div class="declaration mt-3">
+    <p>मैं प्रमाणित करता/करती हूं कि उपर्युक्त विवरण सही है...</p>
+    <div class="row">
+        <div class="col-6 text-start">
+            <p>
+                स्थान: {{ $application->place }} <br>
+                दिनांक: {{ date('d-m-Y', strtotime($application->date)) }}
+            </p>
+        </div>
+        <div class="col-6 text-end">
+            <p>
+                हस्ताक्षर:
+                <br>
+                <img src="{{ asset($application->sign) }}" width="80">
+            </p>
+        </div>
+    </div>
+</div>
+
+
             <div class="nominee-section">
                 <h3 class="title">नामांकन प्रपत्र</h3>
                 <table>
@@ -246,11 +261,26 @@
                         @endforeach
                     </tbody>
                 </table>
+<div class="declaration mt-3">
+    <p>मैं प्रमाणित करता/करती हूं कि उपर्युक्त विवरण सही है...</p>
+    <div class="row">
+        <div class="col-6 text-start">
+            <p>
+                स्थान: {{ $application->place }} <br>
+                दिनांक: {{ date('d-m-Y', strtotime($application->date)) }}
+            </p>
+        </div>
+        <div class="col-6 text-end">
+            <p>
+                 हस्ताक्षर:
+                 <br>
+               <img src="{{ asset($application->sign) }}" width="80">
+            </p>
+        </div>
+    </div>
+</div>
 
-                <p class="mt-3">स्थान: {{ $application->place }} <br>
-                    दिनांक: {{ date('d-m-Y', strtotime($application->date)) }} <br>
-                    हस्ताक्षर: <img src="{{ asset($application->sign) }}" width="80">
-                </p>
+
             </div>
 
             <div class="office-use">
