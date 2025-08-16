@@ -11,18 +11,25 @@
         color: #000;
     }
 
-    .watermark {
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.08;
-        z-index: 0;
-        background: no-repeat center;
-        background-image: url('{{ asset(' assets/img/logo.png') }}');
-        pointer-events: none;
-    }
+   .page {
+    position: relative;   /* Important */
+    min-height: 1000px;
+    padding: 20px;
+}
+
+.watermark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('{{ asset('assets/img/logo.png') }}') no-repeat center;
+
+    opacity: 0.09;
+    z-index: -1;   /* Content ke neeche rahe */
+    pointer-events: none;
+}
+
 
     .header {
         display: flex;
