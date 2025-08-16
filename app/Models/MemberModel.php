@@ -58,4 +58,8 @@ class MemberModel extends Model
         'business',
         'place',
     ];
+    public function referMember()
+    {
+        return $this->belongsTo(StaffMemberModel::class, 'refer_member_tag','tag_id');
+    }
 }

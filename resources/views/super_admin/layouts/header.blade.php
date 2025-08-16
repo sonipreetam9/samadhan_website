@@ -42,7 +42,7 @@
     <!-- Custom Css-->
     <link href="{{ asset('software/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
 
-<style>
+    <style>
         td {
             text-align: center;
         }
@@ -123,12 +123,11 @@
                             <button type="button" class="btn shadow-none" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
-                                    <img class="rounded-circle header-profile-user"
-                                        src="{{ asset($small_logo) }}"
+                                    <img class="rounded-circle header-profile-user" src="{{ asset($small_logo) }}"
                                         alt="Header Avatar" style="object-fit: contain;">
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Super Admin
-                                            </span>
+                                        </span>
                                     </span>
                                 </span>
                             </button>
@@ -228,12 +227,27 @@
                                 <i class="mdi mdi-view-list"></i> <span>Job Payments</span>
                             </a>
                         </li>
+
+
+
+
+                        <li class="menu-title"><i class="ri-more-fill"></i><span>Members</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link {{ request()->routeIs('super.members.list') ? 'active' : '' }}"
+                                href="{{ route('super.members.list') }}">
+                                <i class="mdi mdi-view-list"></i><span>Members List</span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link menu-link {{ request()->routeIs('super.membership.payment.list') ? 'active' : '' }}"
                                 href="{{ route('super.membership.payment.list') }}">
-                                <i class="mdi mdi-view-list"></i> <span>Mambership Payments</span>
+                                <i class="mdi mdi-view-list"></i><span>Members Payments</span>
                             </a>
                         </li>
+
+
+
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Admin</span>
                         </li>

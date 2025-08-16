@@ -281,8 +281,24 @@ class MemberShipController extends Controller
             return redirect()->route('home')->with('success', 'Plz wait your payment in review !!');
         }
         $familyMembers = MemberFamilyModel::where('member_id', $application->id)->get();
-        $nomineeMembers= MemberNominessModel::where('member_id', $application->id)->get();
+        $nomineeMembers = MemberNominessModel::where('member_id', $application->id)->get();
         // dd($familyMembers);
-        return view('print_membership_form', compact('application','familyMembers','nomineeMembers'));
+        return view('print_membership_form', compact('application', 'familyMembers', 'nomineeMembers'));
+    }
+
+
+    public function members_list()
+    {
+        $members = MemberModel::with('referMember')->orderby('id', 'DESC')->get();
+
+        return view('super_admin.all_members_list', compact('members'));
+    }
+    public function member_view($tagId)
+    {
+        $member = MemberModel::with('referMember')->where('tag_id', $tagId)->first();
+        $familyMembers=MemberFamilyModel::where('member_id',$member->id)->get();
+        $familyNominess=MemberNominessModel::where('member_id',$member->id)->get();
+        
+        return view('super_admin.view_member', compact('member','familyMembers','familyNominess'));
     }
 }

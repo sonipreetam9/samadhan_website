@@ -129,6 +129,8 @@ Route::group(['prefix' => 'super_admin', 'middleware' => ['admin']], function ()
     Route::get('/update-payment-status/{id}/{status}', [PaymentController::class, 'update_payment_status'])->name('super.update.payment.status');
 
 
+    Route::get('/members-list', [MemberShipController::class, 'members_list'])->name('super.members.list');
+    Route::get('/view-member/{tagId}', [MemberShipController::class, 'member_view'])->name('super.members.view');
     Route::get('/membership-payment-list', [MemberShipPaymentController::class, 'new_payment_list_member_ship'])->name('super.membership.payment.list');
     Route::get('/membership-update-payment-status/{id}/{status}', [MemberShipPaymentController::class, 'update_payment_status_membership'])->name('super.membership.update.payment.status');
 
