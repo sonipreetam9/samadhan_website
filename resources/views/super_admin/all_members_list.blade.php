@@ -36,7 +36,7 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         {{-- <th>Address</th> --}}
-                                        <th>Password</th>
+                                        {{-- <th>Password</th> --}}
                                         <th>Payment Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -59,12 +59,12 @@
                                         {{-- <td>{{ $mem->address }}</td> --}}
 
                                         {{-- Decode base64 password from in_hash --}}
-                                        <td>
+                                        {{-- <td>
                                             @php
                                             $decodedPassword = base64_decode($mem->in_hash);
                                             @endphp
                                             {{ $decodedPassword }}
-                                        </td>
+                                        </td> --}}
 
                                         {{-- Verify status badge --}}
                                         <td>
@@ -82,9 +82,10 @@
                                         </td>
 
                                         <td>
+                                            @if($mem->tag_id)
                                             <a href="{{ route('super.members.view',$mem->tag_id) }}"
                                                 class="btn btn-sm btn-primary">View</a>
-
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

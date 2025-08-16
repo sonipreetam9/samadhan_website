@@ -57,7 +57,8 @@
                             <div class="col-md-6 mb-2"><strong>Father Name:</strong> {{ $member->father_name }}</div>
                             <div class="col-md-6 mb-2"><strong>Gender:</strong> {{ $member->sex }}</div>
                             <div class="col-md-6 mb-2"><strong>Caste:</strong> {{ $member->caste }}</div>
-                            <div class="col-md-6 mb-2"><strong>DOB:</strong> {{ $member->dob ? \Carbon\Carbon::parse($member->dob)->format('d-m-Y') : '' }}</div>
+                            <div class="col-md-6 mb-2"><strong>DOB:</strong> {{ $member->dob ?
+                                \Carbon\Carbon::parse($member->dob)->format('d-m-Y') : '' }}</div>
                             <div class="col-md-6 mb-2"><strong>Marital Status:</strong> {{ $member->married_status }}
                             </div>
                             <div class="col-md-6 mb-2"><strong>Address:</strong> {{ $member->address }}</div>
@@ -121,10 +122,16 @@
                             @if($member->aadhhar_link && $member->aadhar_yes_no == 'yes')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">Aadhar</p>
+                                @php $ext = pathinfo($member->aadhhar_link, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->aadhhar_link) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->aadhhar_link) }}" target="_blank">
                                     <img src="{{ asset($member->aadhhar_link) }}"
                                         class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
@@ -132,10 +139,16 @@
                             @if($member->birth_link && $member->birth_yes_no == 'yes')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">Birth Certificate</p>
+                                @php $ext = pathinfo($member->birth_link, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->birth_link) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->birth_link) }}" target="_blank">
                                     <img src="{{ asset($member->birth_link) }}"
                                         class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
@@ -143,10 +156,16 @@
                             @if($member->rashon_card_link && $member->rashon_card_yes_no == 'yes')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">Ration Card</p>
+                                @php $ext = pathinfo($member->rashon_card_link, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->rashon_card_link) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->rashon_card_link) }}" target="_blank">
                                     <img src="{{ asset($member->rashon_card_link) }}"
                                         class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
@@ -154,10 +173,16 @@
                             @if($member->voter_card_link && $member->voter_card__yes_no == 'yes')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">Voter Card</p>
+                                @php $ext = pathinfo($member->voter_card_link, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->voter_card_link) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->voter_card_link) }}" target="_blank">
                                     <img src="{{ asset($member->voter_card_link) }}"
                                         class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
@@ -165,9 +190,15 @@
                             @if($member->dl_link && $member->dl_yes_no == 'yes')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">Driving License</p>
+                                @php $ext = pathinfo($member->dl_link, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->dl_link) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->dl_link) }}" target="_blank">
                                     <img src="{{ asset($member->dl_link) }}" class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
@@ -175,10 +206,16 @@
                             @if($member->pan_card_link && $member->pan_card_yes_no == 'yes')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">PAN Card</p>
+                                @php $ext = pathinfo($member->pan_card_link, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->pan_card_link) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->pan_card_link) }}" target="_blank">
                                     <img src="{{ asset($member->pan_card_link) }}"
                                         class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
@@ -186,10 +223,16 @@
                             @if($member->school_link && $member->school_yes_no == 'yes')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">School Certificate</p>
+                                @php $ext = pathinfo($member->school_link, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->school_link) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->school_link) }}" target="_blank">
                                     <img src="{{ asset($member->school_link) }}"
                                         class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
@@ -197,10 +240,16 @@
                             @if($member->passport_link && $member->passport_yes_no == 'yes')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">Passport</p>
+                                @php $ext = pathinfo($member->passport_link, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->passport_link) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->passport_link) }}" target="_blank">
                                     <img src="{{ asset($member->passport_link) }}"
                                         class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
@@ -208,15 +257,22 @@
                             @if($member->family_yes_no == 'yes' && $member->family_name != 'No')
                             <div class="col-md-3 mb-3">
                                 <p class="fw-bold">Family Proof</p>
+                                @php $ext = pathinfo($member->family_name, PATHINFO_EXTENSION); @endphp
+                                @if(strtolower($ext) == 'pdf')
+                                <a href="{{ asset($member->family_name) }}" target="_blank"
+                                    class="btn btn-sm btn-primary">View PDF</a>
+                                @else
                                 <a href="{{ asset($member->family_name) }}" target="_blank">
                                     <img src="{{ asset($member->family_name) }}"
                                         class="img-fluid border rounded doc-thumb">
                                 </a>
+                                @endif
                             </div>
                             @endif
 
                         </div>
                     </div>
+
 
                     <style>
                         .doc-thumb {
