@@ -24,7 +24,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('{{ asset(' assets/img/logo.png') }}') no-repeat center;
+        background: url('{{ asset('assets/img/logo.png') }}') no-repeat center;
 
         opacity: 0.09;
         z-index: -1;
@@ -283,14 +283,48 @@
 
             </div>
 
-            <div class="office-use">
-                <h3 class="title">केवल कार्यालय प्रयोग हेतु</h3>
-                <p>रेट सब्सिडी कोड नं.: __________________________</p>
+           <style>
+    .office-use {
+        border: 1px solid #000;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    .office-use .title {
+        background: #f8c6b5;
+        color: #b10000;
+        text-align: center;
+        font-weight: bold;
+        padding: 4px;
+        margin: 0;
+        border-bottom: 1px solid #000;
+    }
+    .office-use .content {
+        padding: 10px;
+    }
+</style>
+
+<div class="office-use">
+    <h3 class="title">केवल कार्यालय प्रयोग हेतु</h3>
+    <div class="content">
+        <div class="row">
+            <div class="col-8">
+                <p>स्टेट मुख्यालय कोड नं.: __________________________</p>
                 <p>जिला कोड नं.: __________________________</p>
                 <p>पंजीकरण संख्या: __________________________</p>
                 <p>पंजीकरण तिथि: __________________________</p>
-                <p>प्राधिकृत हस्ताक्षर<br>परियोजना अधिकारी...</p>
             </div>
+            <div class="col-4 text-end">
+                <div class="p-4 m-2">&nbsp;</div>
+                <p class="mb-0">प्राधिकृत हस्ताक्षर</p>
+                <p class="m-0">पंजीकरण अधिकारी-कम-मुख्य कार्यकारी अधिकारी</p>
+                <p class="m-0">समाभान ग्रामीण बैंकेबल एवं इन्वेस्टमेंट
+                   सर्विसिज लिमिटेड</p>
+                <p class="m-0">स्टेट मुख्यालय, पंचकुला (हरियाणा)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
         </div>
 
     </div>
