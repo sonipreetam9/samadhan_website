@@ -217,24 +217,24 @@
         <!-- PAGE 2 -->
         <div class="container page page-break">
             <div class="watermark"></div>
-     <div class="declaration mt-3">
-    <p>मैं प्रमाणित करता/करती हूं कि उपर्युक्त विवरण सही है...</p>
-    <div class="row">
-        <div class="col-6 text-start">
-            <p>
-                स्थान: {{ $application->place }} <br>
-                दिनांक: {{ date('d-m-Y', strtotime($application->date)) }}
-            </p>
-        </div>
-        <div class="col-6 text-end">
-            <p>
-                हस्ताक्षर:
-                <br>
-                <img src="{{ asset($application->sign) }}" width="80">
-            </p>
-        </div>
-    </div>
-</div>
+            <div class="declaration mt-3">
+                <p>मैं प्रमाणित करता/करती हूं कि उपर्युक्त विवरण सही है...</p>
+                <div class="row">
+                    <div class="col-6 text-start">
+                        <p>
+                            स्थान: {{ $application->place }} <br>
+                            दिनांक: {{ date('d-m-Y', strtotime($application->date)) }}
+                        </p>
+                    </div>
+                    <div class="col-6 text-end">
+                        <p>
+                            हस्ताक्षर:
+                            <br>
+                            <img src="{{ asset($application->sign) }}" width="80">
+                        </p>
+                    </div>
+                </div>
+            </div>
 
 
             <div class="nominee-section">
@@ -261,24 +261,24 @@
                         @endforeach
                     </tbody>
                 </table>
-<div class="declaration mt-3">
-    <p>मैं प्रमाणित करता/करती हूं कि उपर्युक्त विवरण सही है...</p>
-    <div class="row">
-        <div class="col-6 text-start">
-            <p>
-                स्थान: {{ $application->place }} <br>
-                दिनांक: {{ date('d-m-Y', strtotime($application->date)) }}
-            </p>
-        </div>
-        <div class="col-6 text-end">
-            <p>
-                 हस्ताक्षर:
-                 <br>
-               <img src="{{ asset($application->sign) }}" width="80">
-            </p>
-        </div>
-    </div>
-</div>
+                <div class="declaration mt-3">
+                    <p>मैं प्रमाणित करता/करती हूं कि उपर्युक्त विवरण सही है...</p>
+                    <div class="row">
+                        <div class="col-6 text-start">
+                            <p>
+                                स्थान: {{ $application->place }} <br>
+                                दिनांक: {{ date('d-m-Y', strtotime($application->date)) }}
+                            </p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <p>
+                                हस्ताक्षर:
+                                <br>
+                                <img src="{{ asset($application->sign) }}" width="80">
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
