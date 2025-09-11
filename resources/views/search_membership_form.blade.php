@@ -18,6 +18,14 @@
 <!-- End Page Title -->
 <section class="team-area ptb-100">
     <div class="container">
+
+
+        @if(session('error-review'))
+        <script>
+            alert("{{ session('error-review') }}");
+        </script>
+        @endif
+
         <form action="{{ route('search.member.form.post') }}" method="POST">
             @csrf
             @if(Session::has('success'))
@@ -60,7 +68,7 @@
 </section>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function () {
+    $(document).ready(function () {
     $('#phone').on('input', function () {
         let phone = $(this).val();
 

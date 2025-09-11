@@ -24,5 +24,20 @@ class PrintFormController extends Controller
 
     return view('software.print_form', compact('applyed_job', 'required_doc'));
 }
+    public function print_form_super_admin($applyed_id, $vacancy_id, $user_id)
+{
+    $applyed_job = ApplyedJobModel::where('user_id', $user_id)
+        ->where('id', $applyed_id)
+        ->where('vacancy_id', $vacancy_id)
+        ->first();
+
+    if (!$applyed_job) {
+        return redirect()->back()->with('error', 'Not applied for this vacancy.');
+    }
+
+    $required_doc = ApplyedJobDocumentModel::where('apply_job_id', $applyed_id)->get();
+
+    return view('super_admin.print_form', compact('applyed_job', 'required_doc'));
+}
 
 }

@@ -64,7 +64,7 @@ Route::post('/upload-membership-doc-post', [MemberShipController::class, 'upload
 
 Route::get('/search/member-form', [MemberShipController::class, 'search_member_form'])->name('search.member.form');
 Route::post('/search/member-form-post', [MemberShipController::class, 'search_member_form_post'])->name('search.member.form.post');
-Route::get('/print/membership-form/{tag_id}', [MemberShipController::class, 'print_membership_form'])->name('print.member.form');
+Route::get('/print/membership-form/{tag_id}/{phone}', [MemberShipController::class, 'print_membership_form'])->name('print.member.form');
 
 
 
@@ -148,6 +148,11 @@ Route::group(['prefix' => 'super_admin', 'middleware' => ['admin']], function ()
     Route::get('/team/toggle-status/{id}', [StaffMemberController::class, 'toggleStatus'])->name('super.toggle.status');
     Route::get('/team/toggle-website/{id}', [StaffMemberController::class, 'toggleWebsite'])->name('super.toggle.website');
     Route::get('/team/edit/{id}', [StaffMemberController::class, 'editTeam'])->name('super.edit.team');
+
+
+
+
+    Route::get('/print-form/{applyed_id}/{vacancy_id}/{user_id}', [PrintFormController::class, 'print_form_super_admin'])->name('super.print.form');
 
 });
 

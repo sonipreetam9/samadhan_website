@@ -25,14 +25,14 @@
                 <div class="card shadow">
                     <div class="card-header bg-dark">
                         <h6 class="card-title mb-0 text-white">
-                            UTR - {{ $list->payment_utr }}
+                            UTR - {{ $list->payment_utr }} / Application ID - {{ $list->tag_id }}
                         </h6>
                     </div>
 
                     <div class="card-body text-center">
                         {{-- ✅ Image in full view on click --}}
                         <a href="{{ asset($list->payment_proof) }}" target="_blank">
-                            <img class="mb-3 rounded border" src="{{ asset($list->payment_proof) }}" width="200"
+                            <img class="mb-3 rounded border" src="{{ asset($list->payment_proof) }}" width="170"
                                 alt="Payment Proof" />
                         </a>
 

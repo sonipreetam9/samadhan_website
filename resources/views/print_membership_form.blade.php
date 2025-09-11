@@ -283,46 +283,48 @@
 
             </div>
 
-           <style>
-    .office-use {
-        border: 1px solid #000;
-        margin-top: 20px;
-        font-size: 14px;
-    }
-    .office-use .title {
-        background: #f8c6b5;
-        color: #b10000;
-        text-align: center;
-        font-weight: bold;
-        padding: 4px;
-        margin: 0;
-        border-bottom: 1px solid #000;
-    }
-    .office-use .content {
-        padding: 10px;
-    }
-</style>
+            <style>
+                .office-use {
+                    border: 1px solid #000;
+                    margin-top: 20px;
+                    font-size: 14px;
+                }
 
-<div class="office-use">
-    <h3 class="title">केवल कार्यालय प्रयोग हेतु</h3>
-    <div class="content">
-        <div class="row">
-            <div class="col-8">
-                <p>स्टेट मुख्यालय कोड नं.: __________________________</p>
-                <p>जिला कोड नं.: __________________________</p>
-                <p>पंजीकरण संख्या: __________________________</p>
-                <p>पंजीकरण तिथि: __________________________</p>
+                .office-use .title {
+                    background: #f8c6b5;
+                    color: #b10000;
+                    text-align: center;
+                    font-weight: bold;
+                    padding: 4px;
+                    margin: 0;
+                    border-bottom: 1px solid #000;
+                }
+
+                .office-use .content {
+                    padding: 10px;
+                }
+            </style>
+
+            <div class="office-use">
+                <h3 class="title">केवल कार्यालय प्रयोग हेतु</h3>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-8">
+                            <p>स्टेट मुख्यालय कोड नं.: __________________________</p>
+                            <p>जिला कोड नं.: __________________________</p>
+                            <p>पंजीकरण संख्या: __________________________</p>
+                            <p>पंजीकरण तिथि: __________________________</p>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="p-4 m-2">&nbsp;</div>
+                            <p class="mb-0">प्राधिकृत हस्ताक्षर</p>
+                            <p class="m-0">पंजीकरण अधिकारी-कम- मुख्य कार्यकारी निदेशक</p>
+                            <p class="m-0">समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड</p>
+                            <p class="m-0">स्टेट मुख्यालय, पंचकुला (हरियाणा)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-4 text-end">
-                <div class="p-4 m-2">&nbsp;</div>
-                <p class="mb-0">प्राधिकृत हस्ताक्षर</p>
-                <p class="m-0">पंजीकरण अधिकारी-कम- मुख्य कार्यकारी निदेशक</p>
-                <p class="m-0">समाधान ग्रामीण वैलफेयर एण्ड इम्प्लॉईमेंट सर्विसिज लिमिटेड</p>
-                <p class="m-0">स्टेट मुख्यालय, पंचकुला (हरियाणा)</p>
-            </div>
-        </div>
-    </div>
-</div>
 
         </div>
 

@@ -20,9 +20,9 @@
         </div>
         <div class="container my-4">
             <div class="text-end mb-3 noprint">
-                <button onclick="window.print()" class="btn btn-primary">
+                <a href="{{ route('super.print.form',['applyed_id' => $job->id, 'vacancy_id' => $job->vacancy_id, 'user_id' => $job->user_id]) }}" class="btn btn-primary">
                     <i class="ri-printer-line"></i> Print
-                </button>
+                </a>
             </div>
 
             {{-- Candidate Details --}}

@@ -12,7 +12,10 @@ class MailController extends Controller
     public function sendMail()
     {
         $mail = new PHPMailer(true);
-
+        $toEmail = "ashudahiya7484@gmail.com";
+        $toName = "Ashwani Dahiya";
+        $subject = "Test Email from Laravel using PHPMailer";
+        $body = "<h3>Hello, this is a test email!</h3>";
         try {
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
@@ -31,12 +34,13 @@ class MailController extends Controller
             ];
 
             $mail->setFrom('noreply.samadhangramin@gmail.com', 'samadhangramin');
-            $mail->addAddress('ashudahiya7484@gmail.com', 'Ashwani Dahiya');
+            $mail->addAddress($toEmail, $toName);
 
             $mail->isHTML(true);
-            $mail->Subject = 'Test Email from Laravel using PHPMailer';
-            $mail->Body    = '<h3>Hello, this is a test email!</h3>';
-            $mail->AltBody = 'Hello, this is a test email!';
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+            $mail->AltBody = strip_tags($body);
+
 
             $mail->send();
             echo 'Message has been sent successfully';

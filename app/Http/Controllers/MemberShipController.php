@@ -63,7 +63,6 @@ class MemberShipController extends Controller
         ]);
 
 
-
         $random_part = strtoupper(Str::random(8)) . random_int(100, 999);
 
         // Get first 4 letters of the name in uppercase (no spaces)
@@ -255,15 +254,16 @@ class MemberShipController extends Controller
             return redirect()->route('pay.payment.membership', ['tag_id' => $request->tag_id]);
         }
         if ($application->payment_status == 'review') {
-            return redirect()->route('pay.payment.membership', ['tag_id' => $request->tag_id]);
-        }
+    return redirect()->back()->with('error-review', 'Your application is under review. Verification may take up to 1 hour. Please wait.');
+}
 
-        return redirect()->route('print.member.form', ['tag_id' => $request->tag_id]);
+
+        return redirect()->route('print.member.form', ['tag_id' => $request->tag_id,'phone'=>$request->phone]);
     }
-    public function print_membership_form($tag_id)
+    public function print_membership_form($tag_id,$phone)
     {
 
-        $application = MemberModel::where('tag_id', $tag_id)->first();
+         $application = MemberModel::where('phone', $phone)->where('tag_id', $tag_id)->first();
         if (!$application) {
             return redirect()->back()->with('error', 'Application not found.');
         }
@@ -298,7 +298,7 @@ class MemberShipController extends Controller
         $member = MemberModel::with('referMember')->where('tag_id', $tagId)->first();
         $familyMembers=MemberFamilyModel::where('member_id',$member->id)->get();
         $familyNominess=MemberNominessModel::where('member_id',$member->id)->get();
-        
+
         return view('super_admin.view_member', compact('member','familyMembers','familyNominess'));
     }
 }
