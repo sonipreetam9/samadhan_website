@@ -26,7 +26,7 @@
         bottom: 0;
         background: url('{{ asset('assets/img/logo.png') }}') no-repeat center;
 
-        opacity: 0.09;
+        opacity: 0.2;
         z-index: -1;
         /* Content ke neeche rahe */
         pointer-events: none;
@@ -154,25 +154,25 @@
             </div>
 
             <div class="form-section">
-                <p>1. लाभार्थी का नाम: <span>{{ $application->name }}</span></p>
-                <p>2. पिता/पति का नाम: <span>{{ $application->father_name }}</span></p>
-                <p>3. जन्म तिथि: <span>{{ $application->dob ? \Carbon\Carbon::parse($application->dob)->format('d-m-Y')
+                <p>1. लाभार्थी का नाम:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->name }}</span></p>
+                <p>2. पिता/पति का नाम: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ $application->father_name }}</span></p>
+                <p>3. जन्म तिथि: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->dob ? \Carbon\Carbon::parse($application->dob)->format('d-m-Y')
                         : ''
                         }}</span></p>
-                <p>4. लिंग: <span>{{ $application->sex }}</span></p>
-                <p>5. वैवाहिक स्थिति: <span>{{ $application->married_status }}</span></p>
-                <p>6. जाति श्रेणी: <span>{{ $application->caste }}</span></p>
-                <p>7. शैक्षिक स्तर: <span>{{ $application->study }}</span></p>
-                <p>8. ईमेल: <span>{{ $application->email }}</span></p>
-                <p>9. संपर्क नंबर: <span>{{ $application->phone }}</span></p>
-                <p>10. स्थाई पता: <span>{{ $application->address }}</span></p>
-                <p>11. स्थान: <span>{{ $application->place }}</span></p>
-                <p>12. राशन कार्ड संख्या: <span>{{ $application->rashan_card_number }}</span></p>
-                <p>13. आधार कार्ड संख्या: <span>{{ $application->aadhhar_card_number }}</span></p>
-                <p>14. बैंक खाता धारक का नाम: <span>{{ $application->bank_holder_name }}</span></p>
-                <p>15. बैंक का नाम व शाखा: <span>{{ $application->bank_name }}</span></p>
-                <p>16. खाता संख्या: <span>{{ $application->bank_account_number }}</span></p>
-                <p>17. IFSC कोड: <span>{{ $application->bank_ifsc_code }}</span></p>
+                <p>4. लिंग:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ $application->sex }}</span></p>
+                <p>5. वैवाहिक स्थिति: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span>{{ $application->married_status }}</span></p>
+                <p>6. जाति श्रेणी:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ $application->caste }}</span></p>
+                <p>7. शैक्षिक स्तर: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->study }}</span></p>
+                <p>8. ईमेल:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->email }}</span></p>
+                <p>9. संपर्क नंबर: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->phone }}</span></p>
+                <p>10. स्थाई पता: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ $application->address }}</span></p>
+                <p>11. स्थान: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->place }}</span></p>
+                <p>12. राशन कार्ड संख्या:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->rashan_card_number }}</span></p>
+                <p>13. आधार कार्ड संख्या: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->aadhhar_card_number }}</span></p>
+                <p>14. बैंक खाता धारक का नाम: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ $application->bank_holder_name }}</span></p>
+                <p>15. बैंक का नाम व शाखा: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->bank_name }}</span></p>
+                <p>16. खाता संख्या:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ $application->bank_account_number }}</span></p>
+                <p>17. IFSC कोड: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->bank_ifsc_code }}</span></p>
             </div>
 
 
@@ -202,12 +202,12 @@
                     @endforeach
                 </tbody>
             </table>
-            <p class="mt-2">18. लाभार्थी के परिवार का कोई सदस्य उपरोक्त कार्यालय में पंजीकृत है?: <span>{{
+            <p class="mt-2">18. लाभार्थी के परिवार का कोई सदस्य उपरोक्त कार्यालय में पंजीकृत है?: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{
                     $application->family_yes_no }}</span></p>
             @if ($application->family_yes_no == 'Yes')
 
-            <p>19. अन्य सदस्य का नाम: <span>{{ $application->family_name }}</span></p>
-            <p>20. पंजीकरण संख्या: <span>{{ $application->family_member_number }}</span></p>
+            <p>19. अन्य सदस्य का नाम: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->family_name }}</span></p>
+            <p>20. पंजीकरण संख्या: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ $application->family_member_number }}</span></p>
 
             @endif
 
@@ -222,15 +222,15 @@
                 <div class="row">
                     <div class="col-6 text-start">
                         <p>
-                            स्थान: {{ $application->place }} <br>
-                            दिनांक: {{ date('d-m-Y', strtotime($application->date)) }}
+                            स्थान: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ $application->place }} <br>
+                            दिनांक: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ date('d-m-Y', strtotime($application->date)) }}
                         </p>
                     </div>
                     <div class="col-6 text-end">
                         <p>
-                            हस्ताक्षर:
-                            <br>
                             <img src="{{ asset($application->sign) }}" width="80">
+                            <br>
+                            हस्ताक्षर:
                         </p>
                     </div>
                 </div>
@@ -265,16 +265,16 @@
                     <p>मैं प्रमाणित करता/करती हूं कि उपर्युक्त विवरण सही है...</p>
                     <div class="row">
                         <div class="col-6 text-start">
-                            <p>
-                                स्थान: {{ $application->place }} <br>
-                                दिनांक: {{ date('d-m-Y', strtotime($application->date)) }}
-                            </p>
+                           <p>
+                            स्थान: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ $application->place }} <br>
+                            दिनांक: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ date('d-m-Y', strtotime($application->date)) }}
+                        </p>
                         </div>
                         <div class="col-6 text-end">
                             <p>
-                                हस्ताक्षर:
-                                <br>
                                 <img src="{{ asset($application->sign) }}" width="80">
+                                <br>
+                                हस्ताक्षर:
                             </p>
                         </div>
                     </div>

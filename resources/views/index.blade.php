@@ -46,7 +46,7 @@
 <section class="dream-area p-2">
 
 
-    <marquee><a href="{{ asset('assets/img/VACANCTY09-2025.jpg') }}" target="_blank" style="color: red">{{ $web_name }}
+    <marquee><a href="{{ asset('assets/img/VACANCTY09-2025.jpg') }}" target="_blank" style="color: red;font-size:25px;">{{ $web_name }}
             Advertisement number 09/2025
             for Multiple Positions Released. Online application will start from 16-SEP-2025 and closed
             14-OCT-2025 Click here to download notification.</a></marquee>
@@ -55,7 +55,7 @@
 </section>
 <section class="dream-area p-2 mt-2">
 
-    <marquee><a href="{{ asset('assets/membership_form.pdf') }}" target="_blank" style="color: red">मुख्यालय द्वारा
+    <marquee><a href="{{ asset('assets/membership_form.pdf') }}" target="_blank" style="color: red;font-size:25px;">मुख्यालय द्वारा
             कल्याणकारी योजनाओं से सम्बन्धित आवेदन फ़ार्म पोर्टल पर या नजदीक के सी0एस0सी0 केन्द्रों पर जाकर अपना यूनिक
             पंजीकरण नम्बर प्राप्त करें। (download application form)</a></marquee>
 </section>
