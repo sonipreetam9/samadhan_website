@@ -46,10 +46,10 @@
 <section class="dream-area p-2">
 
 
-    <marquee><a href="{{ asset('assets/img/07_2025_vacancy.jpg') }}" target="_blank" style="color: red">{{ $web_name }}
-            Advertisement number 07/2025
-            for Multiple Positions Released. Online application will start from 01-AUG-2025 and closed
-            15-SEPT-2025 Click here to download notification.</a></marquee>
+    <marquee><a href="{{ asset('assets/img/VACANCTY09-2025.jpg') }}" target="_blank" style="color: red">{{ $web_name }}
+            Advertisement number 09/2025
+            for Multiple Positions Released. Online application will start from 16-SEP-2025 and closed
+            14-OCT-2025 Click here to download notification.</a></marquee>
 
 
 </section>
