@@ -79,7 +79,7 @@
                                         </td>
                                         <td>
                                             @if($applyed->payment_status =="completed")
-                                            <a href="{{ route('user.print.form',['applyed_id' => $applyed->id, 'vacancy_id' => $applyed->vacancy->vacancy_number]) }}"
+                                            <a href="{{ route('user.print.form',['applyed_id' => $applyed->id, 'vacancy_id' => $applyed->vacancy_id]) }}"
                                                 class="btn btn-sm btn-primary" target="_blank">Print PDF</a>
                                             @else
                                             <span class="text-danger">Payment Pending</span>
