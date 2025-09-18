@@ -111,9 +111,9 @@
     <div class="navbar-area sticky-top">
         <style>
             #logo-img{
-                    /* border:1px solid rgb(255, 0, 0);
-                    border-radius: 20px 0px;
-                    padding: 20px; */
+                    border:1px solid rgb(255, 0, 0);
+                    border-radius: 25px 0px;
+                    /* padding: 20px; */
                 }
         </style>
         <!-- Menu For Mobile Device -->
