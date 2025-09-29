@@ -78,12 +78,18 @@ class SVacancyController extends Controller
 
         return view('super_admin.all_vacancy', compact('vacancies'));
     }
-   public function vacancy_delete($id)
-{
-    $vacancy = VacancyModel::findOrFail($id);
-    $vacancy->delete();
+    public function vacancy_delete($id)
+    {
+        $vacancy = VacancyModel::findOrFail($id);
+        $vacancy->delete();
 
-    return redirect()->back()->with('success', 'Vacancy deleted successfully.');
-}
+        return redirect()->back()->with('success', 'Vacancy deleted successfully.');
+    }
+    public function vacancy_edit($id)
+    {
+        $vacancy = VacancyModel::findOrFail($id);
 
+        $ads = AdvertisementModel::orderBy('id', 'DESC')->get();
+        return view('super_admin.edit_vacancy', compact('vacancy'));
+    }
 }

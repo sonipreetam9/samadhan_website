@@ -115,6 +115,7 @@ Route::group(['prefix' => 'super_admin', 'middleware' => ['admin']], function ()
     Route::post('/add-vacancy-post', [SVacancyController::class, 'add_vacancy'])->name('super.add.vacancy.post');
     Route::get('/all-vacancy-list', [SVacancyController::class, 'vacancy_list'])->name('super.vacancy.list');
     Route::get('/vacancy-delete/{id}', [SVacancyController::class, 'vacancy_delete'])->name('super.vacancy.delete');
+    Route::get('/vacancy-edit/{id}', [SVacancyController::class, 'vacancy_edit'])->name('super.vacancy.edit');
 
 
     Route::get('/all-candidate-list', [SCandidateController::class, 'candidate_list'])->name('super.candidate.list');

@@ -15,5 +15,5 @@ class Admin
         }
 
         return redirect()->route('super.login');
-    }
+    } 
 }

@@ -48,8 +48,8 @@
                                         <td>
                                             <div style="display: inline-block; text-align: center;">
                                                 <small style="display: block; font-size: 10px;font-weight:800;">
-                                                    {{ $mem->referMember->tag_id }}</small>
-                                                {{ $mem->referMember->name }}
+                                                    {{ $mem->referMember->tag_id ??  "NULL"}}</small>
+                                                {{ $mem->referMember->name ?? "XX" }}
                                             </div>
                                         </td>
 
