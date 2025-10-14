@@ -47,9 +47,9 @@
 
 
     <marquee><a href="{{ asset('assets/img/VACANCTY09-2025.jpg') }}" target="_blank" style="color: red;font-size:25px;">{{ $web_name }}
-            Advertisement number 09/2025
-            for Multiple Positions Released. Online application will start from 16-SEP-2025 and closed
-            14-OCT-2025 Click here to download notification.</a></marquee>
+            Advertisement number 10/2025
+            for Multiple Positions Released. Online application will start from 15-OCT-2025 and closed
+            31-OCT-2025 Click here to download notification.</a></marquee>
 
 
 </section>
